@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<schema targetNamespace="http://wso2.org/carbon/rules"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://wso2.org/carbon/rules"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+
+    <element name="ruleService">
+        <complexType>
+            <sequence>
+                <element name="ruleSet" type="tns:ruleSetType"/>
+                <element name="operation" type="tns:operationType" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+            <attribute name="name" type="string"/>
+            <attribute name="targetNamespace" type="string"/>
+            <attribute name="scope" type="tns:sessionType"/>
+            <attribute name="description" type="string"/>
+        </complexType>
+    </element>
+
+    <simpleType name="sessionType">
+        <restriction base="string">
+            <enumeration value="request"/>
+            <enumeration value="application"/>
+            <enumeration value="transportsession"/>
+            <enumeration value="soapsession"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="ruleSetType">
+        <sequence>
+            <element name="properties" type="tns:propertiesType" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="rule" type="tns:ruleType" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="propertiesType">
+        <sequence>
+            <element name="property" type="tns:propertyType" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="propertyType">
+         <attribute name="name" type="string" use="required"/>
+         <attribute name="value" type="string" use="required"/>
+    </complexType>
+
+    <complexType name="ruleType">
+          <complexContent>
+            <extension base="string">
+                <attribute name="sourceType" type="tns:sourceTypeType" use="required"/>
+                <attribute name="resourceType" type="tns:resourceTypeType" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <simpleType name="sourceTypeType">
+        <restriction base="string">
+            <enumeration value="inline"/>
+            <enumeration value="registry"/>
+            <enumeration value="file"/>
+            <enumeration value="url"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="resourceTypeType">
+        <restriction base="string">
+            <enumeration value="regular"/>
+            <enumeration value="dtable"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="operationType">
+        <sequence>
+            <element name="input" type="tns:inputType"/>
+            <element name="output" type="tns:outputType"/>
+        </sequence>
+        <attribute name="name" use="required"/>
+    </complexType>
+
+    <complexType name="inputType">
+        <sequence>
+            <element name="fact" type="tns:factType" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="namespace" type="string" use="optional"/>
+        <attribute name="wrapperElementName" type="string" use="optional"/>
+    </complexType>
+
+    <complexType name="outputType">
+        <sequence>
+            <element name="fact" type="tns:factType" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="namespace" type="string" use="optional"/>
+        <attribute name="wrapperElementName" type="string" use="optional"/>
+    </complexType>
+
+    <complexType name="factType">
+        <attribute name="elementName" type="string" use="optional"/>
+        <attribute name="namespace" type="string" use="optional"/>
+        <attribute name="type" type="string" use="required"/>
+        <attribute name="xpath" type="string" use="optional"/>
+    </complexType>
+
+    <element name="rule">
+        <complexType>
+            <sequence>
+                <element name="target" type="tns:targetType"/>
+                <element name="source" type="tns:sourceType"/>
+                <element name="ruleSet" type="tns:ruleSetType"/>
+                <element name="input" type="tns:inputType"/>
+                <element name="output" type="tns:outputType"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="sourceType">
+        <complexContent>
+            <extension base="string">
+                <attribute name="xpath" type="string" use="optional"/>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="targetType">
+        <complexContent>
+            <extension base="string">
+                <attribute name="xpath" type="string" use="optional"/>
+                <attribute name="resultXpath" type="string" use="optional"/>
+                <attribute name="action" type="tns:targetActionType" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+
+     <simpleType name="targetActionType">
+        <restriction base="string">
+            <enumeration value="replace"/>
+            <enumeration value="child"/>
+            <enumeration value="sibling"/>
+        </restriction>
+    </simpleType>
+    
+</schema>

@@ -1,0 +1,21 @@
+<!--<body>-->
+<!--<placeOrder xmlns="http://com.test/placeorder">-->
+<!--<order>-->
+<!--<symbol>IBM</symbol>-->
+<!--<quantity>10</quantity>-->
+<!--<price>100</price>-->
+<!--</order>-->
+<!--</placeOrder>-->
+<!--</body>-->
+
+<body>
+    <wrapper xmlns="http://com.test/placeorder">
+        <placeOrder>
+            <order>
+                <symbol>IBM</symbol>
+                <quantity>10</quantity>
+                <price>100</price>
+            </order>
+        </placeOrder>
+    </wrapper>
+</body>

@@ -1,0 +1,75 @@
+ <!--
+ ~ Copyright (c) 2005-2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~ WSO2 Inc. licenses this file to you under the Apache License,
+ ~ Version 2.0 (the "License"); you may not use this file except
+ ~ in compliance with the License.
+ ~ You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~ Unless required by applicable law or agreed to in writing,
+ ~ software distributed under the License is distributed on an
+ ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~ KIND, either express or implied.  See the License for the
+ ~ specific language governing permissions and limitations
+ ~ under the License.
+ -->
+<component xmlns="http://products.wso2.org/carbon">
+    <!-- sample menu configuration -->
+    <menus>
+        <menu>
+            <id>rule_services_menu</id>
+            <i18n-key>ruleservices.menu.text</i18n-key>
+            <i18n-bundle>org.wso2.carbon.rule.ws.ui.i18n.Resources</i18n-bundle>
+            <parent-menu>services_add_menu</parent-menu>
+            <link>#</link>
+            <region>region1</region>
+            <order>25</order>
+            <style-class>monitor</style-class>
+            <icon>../rule_service/images/rule-service.gif</icon>
+            <require-permission>/permission/admin/manage/add/service</require-permission>
+        </menu>
+
+        <menu>
+            <id>rule_services_create_menu</id>
+            <i18n-key>ruleservices.create.menu.text</i18n-key>
+            <i18n-bundle>org.wso2.carbon.rule.ws.ui.i18n.Resources</i18n-bundle>
+            <parent-menu>rule_services_menu</parent-menu>
+            <link>../ruleservices/rule_service_wizard_step1.jsp</link>
+            <region>region1</region>
+            <order>5</order>
+            <style-class>monitor</style-class>
+            <icon>../rule_service/images/rule-service-create.gif</icon>
+            <require-permission>/permission/admin/manage/add/service</require-permission>
+        </menu>
+
+        <menu>
+            <id>rule_services_upload_menu</id>
+            <i18n-key>ruleservices.upload.menu.text</i18n-key>
+            <i18n-bundle>org.wso2.carbon.rule.ws.ui.i18n.Resources</i18n-bundle>
+            <parent-menu>rule_services_menu</parent-menu>
+            <link>../ruleservices/ruleserviceupload.jsp</link>
+            <region>region1</region>
+            <order>10</order>
+            <style-class>monitor</style-class>
+            <icon>../rule_service/images/rule-service-upload.gif</icon>
+            <require-permission>/permission/admin/manage/add/service</require-permission>
+        </menu>
+    </menus>
+    <FileUploadConfig>
+        <Mapping>
+            <Actions>
+                <Action>rule</Action>
+            </Actions>
+            <Class>org.wso2.carbon.rule.ws.ui.upload.RuleServiceFileUploadExecutor</Class>
+        </Mapping>
+        <Mapping>
+            <Actions>
+                <Action>facts</Action>
+            </Actions>
+            <Class>org.wso2.carbon.rule.ws.ui.wizard.FactsUploadExecutor</Class>
+        </Mapping>
+    </FileUploadConfig>
+</component>
+

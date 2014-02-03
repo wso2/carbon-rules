@@ -1,0 +1,23 @@
+<ruleMediator backendRuntimeFactory="">
+    <source xpath="//" >soapBody|soapHeader|$foo|$bar</source>
+    <target xpath="//" resultXpath="">soapBody|soapHeader|$foo|$bar</target>
+    <ruleSet>
+        <rule type="inline">
+
+        </rule>
+        <rule resourceType="drl|dtable" sourceType="inline|registry|file">
+
+        </rule>
+        <properties>
+            <property></property>
+        </properties>
+    </ruleSet>
+    <input wrapperElementName="" namespace="">
+        <fact elementName="" namespace="" type=""></fact>
+        <fact elementName="" namespace="" type=""></fact>
+    </input>
+    <output wrapperElementName="" namespace="">
+        <fact elementName="" namespace="" type=""></fact>
+        <fact elementName="" namespace="" type=""></fact>
+    </output>
+</ruleMediator>

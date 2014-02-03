@@ -1,0 +1,6 @@
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="RuleSequence">
+   <callout serviceURL="http://service/foo/bar">
+      <source xpath="//ns1:foo" />
+      <target xpath="//ns1:foo" />
+   </callout>
+</sequence>
