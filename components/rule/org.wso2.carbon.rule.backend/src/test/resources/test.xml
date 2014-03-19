@@ -1,0 +1,43 @@
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="RuleSequence">
+    <enrich>
+        <source clone="false" type="inline" xpath="" property="">
+            <input xmlns="">
+                <company>
+                    <price>23.4</price>
+                    <amount>23</amount>
+                </company>
+            </input>
+        </source>
+        <target action="replace" type="property" xpath="" property="ruleInput"/>
+    </enrich>
+    <!-- populate the xml with the required values -->
+
+    <rule>
+        <source property="ruleInput"/>
+        <target property="ruleOutput" xpath="//ns1:foo"/>
+        <ruleSet>
+            <rule>
+
+            </rule>
+            <rule>
+
+            </rule>
+            <properties>
+                <property></property>
+            </properties>
+        </ruleSet>
+        <input>
+            <fact xpath="" type=""></fact>
+            <fact xpath="" type=""></fact>
+        </input>
+        <output>
+            <fact xpath="" type=""></fact>
+            <fact xpath="" type=""></fact>
+        </output>
+    </rule>
+    <filter source="getProperty('ruleOutput')" regex="testValue">
+        <then/>
+        <else/>
+    </filter>
+
+</sequence>

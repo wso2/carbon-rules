@@ -1,0 +1,44 @@
+<ruleService
+        name="testService"
+        xmlns="http://wso2.org/carbon/rules"
+        targetNamespace="">
+    <ruleSet uri="">
+        <rule type="inline">
+
+        </rule>
+        <rule resourceType="drl|dtable" sourceType="inline|registry|file">
+
+        </rule>
+        <properties>
+            <property></property>
+        </properties>
+        <registrationProperties>
+            <property></property>
+        </registrationProperties>
+        <deRegistrationProperties>
+            <property></property>
+        </deRegistrationProperties>
+    </ruleSet>
+    <operation name="">
+        <input wrapperElementName="" namespace="">
+            <fact elementName="" namespace="" type=""></fact>
+            <fact elementName="" namespace="" type=""></fact>
+        </input>
+        <output wrapperElementName="" namespace="">
+            <fact elementName="" namespace="" type=""></fact>
+            <fact elementName="" namespace="" type=""></fact>
+        </output>
+    </operation>
+    <operation name="">
+        <input wrapperElementName="" namespace="">
+            <fact elementName="" namespace="" type=""></fact>
+            <fact elementName="" namespace="" type=""></fact>
+        </input>
+        <output wrapperElementName="" namespace="">
+            <fact elementName="" namespace="" type=""></fact>
+            <fact elementName="" namespace="" type=""></fact>
+        </output>
+    </operation>
+</ruleService>
+
+

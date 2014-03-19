@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+ ~ Copyright (c) 2005-2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~ WSO2 Inc. licenses this file to you under the Apache License,
+ ~ Version 2.0 (the "License"); you may not use this file except
+ ~ in compliance with the License.
+ ~ You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~ Unless required by applicable law or agreed to in writing,
+ ~ software distributed under the License is distributed on an
+ ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~ KIND, either express or implied.  See the License for the
+ ~ specific language governing permissions and limitations
+ ~ under the License.
+ -->
+<html>
+<head>
+    <meta content="text/html; charset=iso-8859-1" http-equiv="content-type"/>
+    <title>Data Sources - User Guide</title>
+    <link href="../../admin/css/documentation.css" rel="stylesheet" type="text/css" media="all"/>
+</head>
+
+<body>
+<h1>Rule Services</h1>
+
+<p><span style="color: black;">Use this configuration panel to create rule
+services. There are two ways for it: Rule Service Upload and Rule Service
+Wizard </span></p>
+
+<h2>Rule Service Upload </h2>
+<ol>
+    <li>Prepare a Rule Service Archive File (.aar) - Please refers the use
+        guide of the BRS product documentation
+    </li>
+    <li>Uploaded the created Rule Service Archive (.aar). Figure 1 shows this
+        <p><img alt="Rule Upload UI " src="images/rule-service-upload.PNG"/></p>
+
+        <p style="text-align:center;">Figure 1. Rule Service Upload UI</p>
+    </li>
+</ol>
+
+<h2>Rule Service Wizard</h2>
+<ol>
+    <li>Service Information - Specify the name and the description of the rule
+        service. Figure 2 shows this.
+        <p><img alt="Service Information" src="images/setp-1.PNG"/></p>
+
+        <p style="text-align:center;">Figure 2. Service Information</p>
+    </li>
+    <li>Rule Set Information - There are three ways to specify the rule set or
+        rule script. In-lined, upload or as a registry key. Figure 3 shows how to
+        give rule script as In-Lined.
+        Rule set creation properties can be used to specify the different types of rule sources.
+        For an example if the rule file is a decision table then user needs to add a property with
+        the name 'source' and value 'javax.rules.admin.RuleExecutionSet.source.decisiontable'.
+        <p><img alt="Rule Set Information " src="images/setp-2-inlined.PNG"/></p>
+
+        <p style="text-align:center;">Figure 3. Rule Set Information</p>
+        
+    </li>
+    <li>Facts Upload - In this step, you have to upload facts and results that
+        are used in your rule script. It should be a valid jar file. Figure 4 shows
+        this.
+        <p><img alt="Facts Upload " src="images/setp-3.PNG"/></p>
+
+        <p style="text-align:center;">Figure 4. Facts Upload</p>
+    </li>
+    <li>Operation Summary - This displays any operation available in the service.
+        You can uses add operation button to create a new operation. Figure 5 shows
+        this.
+        <p><img alt="Operation Summary " src="images/setp-4.PNG"/></p>
+
+        <p style="text-align:center;">Figure 5. Operation Summary</p>
+    </li>
+    <li>Add Operation - The operation name is mandatory.You can define the
+        required facts and results.The type is the only mandatory attribute for
+        both facts and results.Figure 6 shows this.
+        <p><img alt="Add Operation " src="images/setp-5.PNG"/></p>
+
+        <p style="text-align:center;">Figure 5. Add Operation</p>
+    </li>
+</ol>
+</body>
+</html>

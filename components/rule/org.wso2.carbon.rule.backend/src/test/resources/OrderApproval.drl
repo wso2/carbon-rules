@@ -1,0 +1,52 @@
+package OrderApproval;
+
+import samples.userguide.OrderAccept;
+import samples.userguide.OrderReject;
+import samples.userguide.PlaceOrder;
+
+rule "Order Approval Rule" dialect "mvel" no-loop true salience 4
+
+when
+$placeOrder : PlaceOrder( ( symbol == "IBM" && quantity > 10 ) || ( symbol == "SUN" && price > 100 ) || ( symbol == "MSFT" && price > 50 && quantity < 200 ) )
+then
+
+OrderAccept orderAccept = new OrderAccept();
+orderAccept.setMessage("Accepted order for: "+ $placeOrder.quantity + " stocks of "+
+$placeOrder.symbol +" at$ " + $placeOrder.price);
+insertLogical(orderAccept);
+
+end
+
+rule "IBM Order Deny Rule" dialect "mvel" no-loop true salience 3
+
+when
+not ( OrderAccept())
+$placeOrder : PlaceOrder( symbol == "IBM" )
+then
+retract($placeOrder);
+OrderReject orderReject = new OrderReject();
+orderReject.setReason("An Order for stocks of IBM is accepted only if the number of stocks is higher than 10.");
+insertLogical(orderReject);
+end
+
+rule "SUN Order Deny Rule" dialect "mvel" no-loop true salience 2
+when
+not ( OrderAccept())
+$placeOrder : PlaceOrder( symbol == "SUN" )
+then
+retract($placeOrder);
+OrderReject orderReject = new OrderReject();
+orderReject.setReason("An Order for stocks of SUN is accepted only if the stock price is higher than 100 $.");
+insertLogical(orderReject);
+end
+
+rule "MSFT Order Deny Rule" dialect "mvel" no-loop true salience 1
+when
+not ( OrderAccept())
+$placeOrder : PlaceOrder( symbol == "MSFT" )
+then
+retract($placeOrder);
+OrderReject orderReject = new OrderReject();
+orderReject.setReason("An Order for stocks of MSFT is accepted only if the stock price is higher than 50 $ and the number of stocks is lower than 200.");
+insertLogical(orderReject);
+end
