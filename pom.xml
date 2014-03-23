@@ -33,6 +33,179 @@
                 <artifactId>axiom</artifactId>
                 <version>${orbit.version.axiom}</version>
             </dependency>
+         <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-jsr94</artifactId>
+                <version>${version.drools}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-api</artifactId>
+                <version>${version.drools}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-core</artifactId>
+                <version>${version.drools}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-compiler</artifactId>
+                <version>${version.drools}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.logging</artifactId>
+                <version>${carbon.platform.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.core</artifactId>
+                <version>${carbon.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rulecep.adapters</artifactId>
+                <version>${previous.version.320}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rulecep.commons</artifactId>
+                <version>${previous.version.320}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rulecep.adapters.service</artifactId>
+                <version>${previous.version.320}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rulecep.service</artifactId>
+                <version>${previous.version.320}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.core</artifactId>
+                <version>${previous.version.320}</version>
+            </dependency>		
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.common</artifactId>
+                <version>${carbon.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.kernel</artifactId>
+                <version>${carbon.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.server</artifactId>
+                <version>${previous.version.320}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.engine.drools</artifactId>
+                <version>${previous.version.320}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.engine.jsr94</artifactId>
+                <version>${previous.version.320}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.samples</artifactId>
+                <version>${carbon.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.ws.stub</artifactId>
+                <version>${carbon.platform.version}</version>
+            </dependency>
+             <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.event.core</artifactId>
+                <version>${carbon.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.ui</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jsr94</groupId>
+                <artifactId>jsr94</artifactId>
+                <version>${version.jsr94}</version>
+            </dependency>
+                                                                                          
+            <!-- testing dependencies -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>xmlunit</groupId>
+                <artifactId>xmlunit</artifactId>
+                <version>${version.xmlunit}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- AXIOM Dependencies -->
+            <dependency>
+                <groupId>org.apache.ws.commons.axiom</groupId>
+                <artifactId>axiom-impl</artifactId>
+                <version>${version.axiom}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.ws.commons.axiom</groupId>
+                <artifactId>axiom-api</artifactId>
+                <version>${version.axiom}</version>
+            </dependency>
+            <dependency>
+                <groupId>jaxen</groupId>
+                <artifactId>jaxen</artifactId>
+                <version>${version.jaxen}</version>
+            </dependency>
+            <dependency>
+                <artifactId>log4j</artifactId>
+                <groupId>log4j</groupId>
+                <version>${version.log4j}</version>
+            </dependency>
+            <dependency>
+                <artifactId>commons-fileupload</artifactId>
+                <groupId>commons-fileupload.wso2</groupId>
+                <version>${orbit.version.commons.fileuploader}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.synapse</groupId>
+                <artifactId>synapse-core</artifactId>
+                <version>${synapse.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.axis2</groupId>
+                        <artifactId>axis2-codegen</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.utils</artifactId>
+            <version>${carbon.platform.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.rule.ws.stub</artifactId>
+            <version>${carbon.platform.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.service.mgt.stub</artifactId>
+            <version>${carbon.platform.version}</version>
+        </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -245,6 +418,7 @@
 
     <properties>
         <previous.version>4.2.0</previous.version>
+        <previous.version.320>3.2.0</previous.version.320>
         <version.jettison>1.3.4</version.jettison>
         <wso2carbon.version>4.3.0-SNAPSHOT</wso2carbon.version>
         <orbit.version.axiom>1.2.11.wso2v5-SNAPSHOT</orbit.version.axiom>
@@ -252,8 +426,14 @@
         <axis2.wso2.version.aar.plugin>1.6.2</axis2.wso2.version.aar.plugin>
         <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
 
+        <!--Drools-->
+        <orbit.version.drools>5.1.1.wso2v1</orbit.version.drools>
+        <version.drools>5.1.1</version.drools>
+        <version.jsr94>1.1</version.jsr94>
+
         <!-- Carbon platform version comes here-->
         <carbon.platform.version>4.3.0-SNAPSHOT</carbon.platform.version>
+        <carbon.kernel.version>4.3.0-SNAPSHOT</carbon.kernel.version>
         <carbon.platform.package.export.version>4.3.0-SNAPSHOT
         </carbon.platform.package.export.version>
         <carbon.platform.package.import.version.range>[4.3.0.SNAPSHOT, 4.4.0)
@@ -264,7 +444,7 @@
 
         <!-- Axiom Version -->
         <axiom.wso2.version>1.2.11.wso2v5-SNAPSHOT</axiom.wso2.version>
-        <axiom.version>1.2.11.wso2v5-SNAPSHOT</axiom.version>
+        <version.axiom>1.2.11-wso2v5-SNAPSHOT</version.axiom>
         <axiom.osgi.version.range>[1.2.11.wso2v5, 1.3.0)</axiom.osgi.version.range>
 
         <!-- Axis2 Version -->
@@ -412,6 +592,8 @@
 	<!--For BRS-->
 	<orbit.version.org.apache.xmlbeans.wso2.xmlbeans>2.3.0.wso2v1</orbit.version.org.apache.xmlbeans.wso2.xmlbeans>
 	<version.log4j>1.2.17</version.log4j>
+        <version.xmlunit>1.1</version.xmlunit>
+        <version.jaxen>1.1.1</version.jaxen>
 	<geronimo.transaction.version>2.0.1.wso2v1</geronimo.transaction.version>
 	<org.eclipse.osgi.version>3.5.0.v20090520</org.eclipse.osgi.version>
 	<simple-json.version>1.1</simple-json.version>
