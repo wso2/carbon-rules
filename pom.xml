@@ -12,8 +12,8 @@
 
     <modules>
         <module>service-stubs/rule</module>    
-        <!--module>components/rule</module>  
-	<module>features/rule</module-->
+        <module>components/rule</module>  
+	<!--module>features/rule</module-->
     </modules>
 
     <dependencyManagement>
