@@ -38,17 +38,14 @@
 	 <dependency>
             <groupId>org.wso2.carbon</groupId>
             <artifactId>org.wso2.carbon.rule.ws.ui</artifactId>
-	    <version>4.3.0-SNAPSHOT</version>
         </dependency>
 	<dependency>
             <groupId>org.wso2.carbon</groupId>
             <artifactId>org.wso2.carbon.rule.ws.stub</artifactId>
-	    <version>4.3.0-SNAPSHOT</version>
         </dependency>
 	 <dependency>
             <groupId>org.wso2.carbon</groupId>
             <artifactId>org.wso2.carbon.rule.common</artifactId>
-	    <version>4.3.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
