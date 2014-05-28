@@ -309,6 +309,23 @@ public class RuleServiceAdminClient {
 
     }
 
+    /**
+     * Delete rule temp directory that are not needed
+     *
+     * @param @param session                HttpSession
+     * @param ruleService       The name of the service that fact archives are belonged
+     */
+    public void deleteTempRuleDirectory(RuleService ruleService,
+                                  javax.servlet.http.HttpSession session) {
+        String serviceName = ruleService.getName();
+        try {
+            ruleServiceAdminStub.deleteTempRuleDirectory(serviceName);
+        } catch (Exception e) {
+            throw new RuleServiceClientException("Error deleting rule temp archive : " + serviceName +"  rule service : " +
+                    serviceName);
+        }
+
+    }
 
     /**
      * Save the rule service based on the information in the given

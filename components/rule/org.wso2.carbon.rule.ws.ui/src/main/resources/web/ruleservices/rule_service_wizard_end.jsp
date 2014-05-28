@@ -33,10 +33,6 @@
         CarbonUIMessage.sendCarbonUIMessage(msg, CarbonUIMessage.INFO, request,
                 response, "../service-mgt/index.jsp");
 
-        session.removeAttribute(RuleServiceAdminClient.RULE_SERVIE);
-        session.removeAttribute(RuleServiceAdminClient.FACTS);
-        session.removeAttribute(RuleServiceAdminClient.SCRIPTS);
-        session.removeAttribute(NameSpacesInformationRepository.NAMESPACES_INFORMATION_REPOSITORY);
     } catch (Exception e) {
         String msg = "Error saving rule service : " + e.getMessage();
         CarbonUIMessage.sendCarbonUIMessage(msg, CarbonUIMessage.ERROR, request,
@@ -44,6 +40,7 @@
     } finally {
         session.removeAttribute(RuleServiceAdminClient.RULE_SERVIE);
         session.removeAttribute(RuleServiceAdminClient.FACTS);
+        session.removeAttribute(RuleServiceAdminClient.SCRIPTS);
         session.removeAttribute(NameSpacesInformationRepository.NAMESPACES_INFORMATION_REPOSITORY);
     }
 %>

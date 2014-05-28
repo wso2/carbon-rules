@@ -277,7 +277,13 @@ public class RuleServiceArchiveAdminHandler extends AbstractRuleServiceAdminHand
         if (conf.exists()) {
             File[] drls = FileManipulator.getMatchingFiles(
                     conf.getAbsolutePath(), null, ".drl");
+            File[] xls=  FileManipulator.getMatchingFiles(
+                    conf.getAbsolutePath(), null, ".xls");
             for (File file : drls) {
+                ruleFiles.add(file.getName());
+
+            }
+            for (File file : xls) {
                 ruleFiles.add(file.getName());
 
             }
@@ -347,5 +353,15 @@ public class RuleServiceArchiveAdminHandler extends AbstractRuleServiceAdminHand
                     " a class file");
         }
         return resourceName.substring(0, resourceName.length() - 6).replace('/', '.');
+    }
+
+    public void deleteTempRuleServiceDirectory(String serviceName) throws RuleServiceAdminException {
+
+        String targetDirectory = getTempDir() + File.separator + serviceName + "." +
+                Constants.RULE_SERVICE_ARCHIVE_EXTENSION;
+        File tempFile = new File(targetDirectory);
+        if (tempFile.exists()) {
+            FileManipulator.deleteDir(new File(targetDirectory));
+        }
     }
 }

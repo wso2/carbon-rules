@@ -68,6 +68,20 @@
             CARBON.showWarningDialog('<fmt:message key="operation.name.empty"/>');
             return false;
         }
+
+        var i = document.getElementById("inputFactCount").value;
+        var inputCount = parseInt(i);
+
+        if (inputCount == 0) {
+            CARBON.showErrorDialog('<fmt:message key="inputFacts.empty"/>');
+            return false;
+        }
+        var y = document.getElementById("outputFactCount").value;
+        var outputCount = parseInt(y);
+        if (outputCount ==0) {
+            CARBON.showErrorDialog('<fmt:message key="outputFacts.empty"/>');
+            return false;
+        }
         var reWhiteSpace = new RegExp("^[a-zA-Z0-9_]+$");
         // Check for white space
         if (!reWhiteSpace.test(serviceName)) {

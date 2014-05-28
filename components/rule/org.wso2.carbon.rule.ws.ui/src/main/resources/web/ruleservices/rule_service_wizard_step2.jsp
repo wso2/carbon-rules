@@ -38,13 +38,15 @@
 <script type="text/javascript" src="../yui/build/menu/menu-min.js"></script>
 <script type="text/javascript" src="../ajax/js/prototype.js"></script>
 <script type="text/javascript" src="../resources/js/resource_util.js"></script>
+<script src="../editarea/edit_area_full.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="../resources/css/registry.css"/>
+<jsp:include page="../dialog/display_messages.jsp"/>
 <%
     RuleServiceAdminClient ruleServiceAdminClient =
             new RuleServiceAdminClient(config.getServletContext(), session);
     RuleService serviceDescription =
             ruleServiceAdminClient.getRuleServiceDescription(request);
-    RuleServiceManagementHelper.saveStep1(serviceDescription, request);
+    RuleServiceManagementHelper.saveStep1(serviceDescription,request);
     String ruleValueZero = "";
 
 
@@ -56,43 +58,43 @@
 
     Map<String, String> scriptList = (Map<String, String>) session.getAttribute(RuleServiceAdminClient.SCRIPTS);
 
-    if (serviceDescription != null && scriptList == null) {
+    if(serviceDescription!=null&&scriptList==null) {
         RuleSet ruleSet = serviceDescription.getRuleSet();
+
         if (ruleSet != null) {
             scriptList = new HashMap<String, String>();
-            if (ruleSet == null) {
-                ruleSet = new RuleSet();
-                serviceDescription.setRuleSet(ruleSet);
-            }
-
-
             List<Rule> ruleList = ruleSet.getRules();
-            String sourceType = ruleList.get(0).getSourceType();
-            ruleValueZero = ruleList.get(0).getValue();
-            for (Rule rule : ruleList) {
-                String scriptValue = rule.getValue().toString();
-                String scriptType = rule.getSourceType().toString();
-                scriptList.put(scriptValue, scriptType);
+            if(ruleList!=null && !ruleList.isEmpty()) {
 
-            }
-            if (!sourceType.equals("inline")) {
-                isInLined = false;
-                session.setAttribute(RuleServiceAdminClient.SCRIPTS, scriptList);
+                String sourceType = ruleList.get(0).getSourceType();
+                ruleValueZero = ruleList.get(0).getValue();
+                for (Rule rule : ruleList) {
+                    String scriptValue = rule.getValue().toString();
+                    String scriptType = rule.getSourceType().toString();
+                    scriptList.put(scriptValue, scriptType);
 
-                if (sourceType.equals("file"))
-                    isPath = true;
-                else if (sourceType.equals("registry"))
-                    isRegistry = true;
-                else if (sourceType.equals("url"))
-                    isURL = true;
-                else
-                    isInLined = true;
+                }
+                if (!sourceType.equals("inline")) {
+                    isInLined = false;
+                    session.setAttribute(RuleServiceAdminClient.SCRIPTS, scriptList);
+
+                    if (sourceType.equals("file"))
+                        isPath = true;
+                    else if (sourceType.equals("registry"))
+                        isRegistry = true;
+                    else if (sourceType.equals("url"))
+                        isURL = true;
+                    else
+                        isInLined = true;
+                }
             }
+        } else {
+            ruleSet = new RuleSet();
+            serviceDescription.setRuleSet(ruleSet);
         }
 
 
     }
-
 
     String ruleScriptListDisplay = "display:none;";
     String scriptListHeaderDisplay = "display:none;";
@@ -176,10 +178,13 @@
 </style>
 <script type="text/javascript">
     function validateRuleFileUpload() {
+
+    //set the hidden filed value to the new code created
+    document.getElementById("ruleSourceInlined").value = editAreaLoader.getValue("ruleSourceInlined");
         var fileName = document.ruleScriptUpload.ruleFilename.value;
         if (fileName == '') {
             CARBON.showErrorDialog('<fmt:message key="select.rule.script"/>');
-        } else if (fileName.lastIndexOf(".drl") == -1) {
+        } else if (fileName.lastIndexOf(".drl") == -1 && fileName.lastIndexOf(".xls") == -1) {
             CARBON.showErrorDialog('<fmt:message key="select.valid.rule.script"/>');
         } else {
             document.ruleScriptUpload.submit();
@@ -187,15 +192,18 @@
     }
 
     function validate() {
+        //set the hidden filed value to the new code created
+        document.getElementById("ruleSourceInlined").value = editAreaLoader.getValue("ruleSourceInlined");
         var value;
         if (document.getElementById('ruleScriptTypeinlined').checked) {
             document.getElementById('ruleSourceType').value = "inlined";
-            value = document.getElementById("ruleSourceInlined").value;
+            value = editAreaLoader.getValue("ruleSourceInlined");
             value = value.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
             if (value == '') {
                 CARBON.showErrorDialog('<fmt:message key="inlined.script.empty"/>');
                 return false;
             }
+
             deleteAllRuleFiles();
 
 
@@ -219,6 +227,9 @@
     }
 
     function onRegistryResourceSelect() {
+
+        //set the hidden filed value to the new code created
+        document.getElementById("ruleSourceInlined").value = editAreaLoader.getValue("ruleSourceInlined");
         var ruleSourceKey = document.getElementById("ruleSourceKey").value;
         if (ruleSourceKey != undefined && ruleSourceKey != null) {
             document.getElementById("registryResourcePath").value = ruleSourceKey;
@@ -237,7 +248,13 @@
     }
 
 </script>
-
+	<script type="text/javascript">
+    editAreaLoader.init({
+        id : "ruleSourceInlined"		// text area id
+        ,syntax: "java"			// syntax to be uses for highlighting
+        ,start_highlight: true  // to display with highlight mode on start-up
+    });
+    </script>
 <div id="middle">
 <h2>
     <h2><fmt:message key="step2.msg"/></h2>
@@ -363,7 +380,7 @@
     </tr>
 </table>
 
-<table class="styledLeft bordered-table">
+<table class="styledLeft bordered-table" style="width:100%">
 <form method="post" name="ruleScriptUpload"
       action="../../fileupload/facts"
       enctype="multipart/form-data" target="_self">
@@ -445,10 +462,11 @@
     </tr>
     <tr id="ruleScriptSourceTR" style="<%=ruleSourceDisplay%>">
         <td class="hiddenMargin">
-            <table class="normal">
+            <table class="normal" style="width:100%">
+                <tr><fmt:message key="rule.source.inlined"/></tr>
                 <tr>
-                    <td><fmt:message key="rule.source.inlined"/></td>
-                    <td><textarea cols="80" rows="15"
+
+                    <td><textarea style="border:solid 1px #cccccc; width: 99%; height: 400px; margin-top:5px;"
                                   name="ruleSourceInlined"
                                   id="ruleSourceInlined"><%=ruleValueZero%>
                     </textarea></td>
