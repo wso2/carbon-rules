@@ -18,7 +18,6 @@
 
     <dependencyManagement>
         <dependencies>
-
         <dependency>
             <groupId>org.apache.axis2.wso2</groupId>
             <artifactId>axis2</artifactId>
