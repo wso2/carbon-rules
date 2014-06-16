@@ -17,12 +17,30 @@
  -->
 <%@ page import="org.wso2.carbon.rule.ws.ui.ns.NameSpacesInformationRepository" %>
 <%@ page import="org.wso2.carbon.rule.ws.ui.wizard.RuleServiceAdminClient" %>
+<%@ page import="org.wso2.carbon.rule.common.RuleService" %>
+<%@ page import="org.wso2.carbon.ui.CarbonUIMessage" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
+
 <%
-    session.removeAttribute(RuleServiceAdminClient.RULE_SERVIE);
-    session.removeAttribute(RuleServiceAdminClient.FACTS);
-    session.removeAttribute(NameSpacesInformationRepository.NAMESPACES_INFORMATION_REPOSITORY);
+ try {
+        RuleServiceAdminClient ruleServiceAdminClient =
+                new RuleServiceAdminClient(config.getServletContext(), session);
+        RuleService ruleService =
+                ruleServiceAdminClient.getRuleServiceDescription(request);
+        ruleServiceAdminClient.deleteTempRuleDirectory(ruleService,session);
+
+    } catch (Exception e) {
+        String msg = "Error cancelling rule service : " + e.getMessage();
+        CarbonUIMessage.sendCarbonUIMessage(msg, CarbonUIMessage.ERROR, request,
+                response, "../admin/error.jsp");
+    } finally {
+        session.removeAttribute(RuleServiceAdminClient.RULE_SERVIE);
+        session.removeAttribute(RuleServiceAdminClient.FACTS);
+        session.removeAttribute(RuleServiceAdminClient.SCRIPTS);
+        session.removeAttribute(NameSpacesInformationRepository.NAMESPACES_INFORMATION_REPOSITORY);
+    }
+
 %>
 
 <script type="text/javascript">

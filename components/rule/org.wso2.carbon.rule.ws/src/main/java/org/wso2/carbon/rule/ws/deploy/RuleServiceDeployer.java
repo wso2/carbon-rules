@@ -145,16 +145,28 @@ public class RuleServiceDeployer extends AbstractDeployer {
                     axisConfiguration);
 
             this.fileNameToServiceNameMap.put(file.getAbsolutePath(), axisServiceGroup.getServiceGroupName());
+            //remove if there is any faulty service associate with artifact.
+            axisConfiguration.removeFaultyService(deploymentFileData.getAbsolutePath());
 
+            /**
+             * Services which fail at deployment need to store as faulty service.
+             * This will help user to fix the error and redeploy.
+             */
         } catch (FileNotFoundException e) {
+            storeFaultyService(deploymentFileData,e);
+            log.error("Can not read the file ", e);
             throw new DeploymentException("Can not read the file ", e);
         } catch (AxisFault axisFault) {
+            storeFaultyService(deploymentFileData, axisFault);
             log.error("Can not create the rule engine ", axisFault);
             throw new DeploymentException("Can not add the axis2 service to configuration", axisFault);
         } catch (RuleConfigurationException e) {
+            storeFaultyService(deploymentFileData, e);
             log.error("Can not create the rule engine ", e);
             throw new DeploymentException("Can not create the rule engine ", e);
         } catch (MalformedURLException e) {
+            log.error("Invalid deployment file data location", e);
+            storeFaultyService(deploymentFileData, e);
             throw new DeploymentException("Invalid deployment file data location", e);
         } finally {
             if (rslFileInputStream != null) {
@@ -305,6 +317,8 @@ public class RuleServiceDeployer extends AbstractDeployer {
         //remove this service from the AxisConfiguration
         File file = new File(s);
         AxisConfiguration axisConfiguration = this.configurationContext.getAxisConfiguration();
+        //remove if there is any faulty service associate with artifact.
+        axisConfiguration.removeFaultyService(file.getAbsolutePath());
         AxisServiceGroup serviceGroup;
         try {
             serviceGroup =
@@ -319,8 +333,6 @@ public class RuleServiceDeployer extends AbstractDeployer {
             }
                 this.configurationContext.removeServiceGroupContext(serviceGroup);
 
-            } else {
-                axisConfiguration.removeFaultyService(this.fileNameToServiceNameMap.get(file.getAbsolutePath()));
             }
         } catch (AxisFault axisFault) {
             throw new DeploymentException("Can not undeploy the file " + s);
@@ -366,4 +378,27 @@ public class RuleServiceDeployer extends AbstractDeployer {
             }
         }
     }
+    /**
+     * Services which fail at deployment will be stored as faulty services
+     * @param deploymentFileData - Deployment package data
+     * @param t - reason for fail at deployment
+     */
+    protected void storeFaultyService(DeploymentFileData deploymentFileData, Throwable t) {
+
+        try {
+
+            StringWriter errorWriter = new StringWriter();
+            PrintWriter printWriter = new PrintWriter(errorWriter);
+            t.printStackTrace(printWriter);
+            configurationContext.getAxisConfiguration().getFaultyServices().put(deploymentFileData.getFile().getAbsolutePath(), errorWriter.toString());
+
+
+        } catch (Exception ex) {
+            log.warn("Error marking service : " + deploymentFileData.getName() +
+                    " as faulty due to : " + t.getMessage(), ex);
+        }
+    }
+    
+    
+
 }

@@ -53,6 +53,7 @@ public class FactsUploadExecutor extends AbstractFileUploadExecutor {
                     response, "../" + webContext + "/ruleservices/rule_service_wizard_step3.jsp");
             return false;
         }
+
         String ruleServiceName = formFieldsMap.get("ruleServiceName").get(0); //TODO validation
         RuleServiceAdminClient adminClient =
                 new RuleServiceAdminClient(configurationContext, serverURL, cookie);

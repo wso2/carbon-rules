@@ -119,6 +119,13 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+ 	<xs:element name="deleteTempRuleDirectory">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="deleteRuleFile">
                 <xs:complexType>
                     <xs:sequence>
@@ -173,6 +180,9 @@
     <wsdl:message name="getAllRuleServicesResponse">
         <wsdl:part name="parameters" element="ns:getAllRuleServicesResponse"/>
     </wsdl:message>
+    <wsdl:message name="deleteTempRuleDirectoryRequest">
+        <wsdl:part name="parameters" element="ns:deleteTempRuleDirectory"></wsdl:part>
+    </wsdl:message>
     <wsdl:message name="addRuleServiceRequest">
         <wsdl:part name="parameters" element="ns:addRuleService"/>
     </wsdl:message>
@@ -222,6 +232,11 @@
             <wsdl:output message="tns:getAllRuleServicesResponse" wsaw:Action="urn:getAllRuleServicesResponse"/>
             <wsdl:fault message="tns:RuleServiceAdminRuleServiceAdminException" name="RuleServiceAdminRuleServiceAdminException" wsaw:Action="urn:getAllRuleServicesRuleServiceAdminRuleServiceAdminException"/>
         </wsdl:operation>
+ <wsdl:operation name="deleteTempRuleDirectory">
+            <wsdl:input message="tns:deleteTempRuleDirectoryRequest" wsaw:Action="urn:deleteTempRuleDirectory"></wsdl:input>
+            <wsdl:fault message="tns:RuleServiceAdminRuleServiceAdminException" name="RuleServiceAdminRuleServiceAdminException" wsaw:Action="urn:deleteTempRuleDirectoryRuleServiceAdminRuleServiceAdminException"></wsdl:fault>
+        </wsdl:operation>
+
         <wsdl:operation name="addRuleService">
             <wsdl:input message="tns:addRuleServiceRequest" wsaw:Action="urn:addRuleService"/>
             <wsdl:fault message="tns:RuleServiceAdminRuleServiceAdminException" name="RuleServiceAdminRuleServiceAdminException" wsaw:Action="urn:addRuleServiceRuleServiceAdminRuleServiceAdminException"/>
@@ -282,6 +297,15 @@
             </wsdl:output>
             <wsdl:fault name="RuleServiceAdminRuleServiceAdminException">
                 <soap:fault use="literal" name="RuleServiceAdminRuleServiceAdminException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTempRuleDirectory">
+            <soap:operation soapAction="urn:deleteTempRuleDirectory" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:fault name="RuleServiceAdminRuleServiceAdminException">
+                <soap:fault use="literal" name="RuleServiceAdminRuleServiceAdminException"></soap:fault>
             </wsdl:fault>
         </wsdl:operation>
         <wsdl:operation name="getAllRuleServices">
@@ -404,6 +428,16 @@
                 <soap12:fault use="literal" name="RuleServiceAdminRuleServiceAdminException"/>
             </wsdl:fault>
         </wsdl:operation>
+
+        <wsdl:operation name="deleteTempRuleDirectory">
+            <soap12:operation soapAction="urn:deleteTempRuleDirectory" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:fault name="RuleServiceAdminRuleServiceAdminException">
+                <soap12:fault use="literal" name="RuleServiceAdminRuleServiceAdminException"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
         <wsdl:operation name="getAllRuleServices">
             <soap12:operation soapAction="urn:getAllRuleServices" style="document"/>
             <wsdl:input>
@@ -517,6 +551,12 @@
             <wsdl:output>
                 <mime:content type="text/xml" part="parameters"/>
             </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTempRuleDirectory">
+            <http:operation location="deleteTempRuleDirectory"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
         </wsdl:operation>
         <wsdl:operation name="getAllRuleServices">
             <http:operation location="getAllRuleServices"/>

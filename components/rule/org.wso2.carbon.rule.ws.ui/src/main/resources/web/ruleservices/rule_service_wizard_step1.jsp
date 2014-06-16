@@ -17,13 +17,25 @@
  -->
 <%@ page import="org.wso2.carbon.rule.ws.ui.wizard.RuleServiceAdminClient" %>
 <%@ page import="org.wso2.carbon.rule.common.RuleService" %>
+<%@ page import="org.wso2.carbon.rule.ws.ui.ns.NameSpacesInformationRepository" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <%
 
-    RuleServiceAdminClient ruleServiceAdminClient = new RuleServiceAdminClient(config.getServletContext(), session);
-    RuleService ruleService =
-            ruleServiceAdminClient.getRuleServiceDescription(request);
+       RuleServiceAdminClient ruleServiceAdminClient = new RuleServiceAdminClient(config.getServletContext(), session);
+       RuleService ruleService =
+               ruleServiceAdminClient.getRuleServiceDescription(request);
+
+ String item=request.getParameter("item");
+    if(item!=null && item.equals("rule_services_create_menu")){
+               session.removeAttribute(RuleServiceAdminClient.RULE_SERVIE);
+               session.removeAttribute(RuleServiceAdminClient.FACTS);
+               session.removeAttribute(RuleServiceAdminClient.SCRIPTS);
+               session.removeAttribute(NameSpacesInformationRepository.NAMESPACES_INFORMATION_REPOSITORY);
+               ruleServiceAdminClient.deleteTempRuleDirectory(ruleService,session);
+
+    }
+
 
 
     String serviceName = "";
@@ -31,7 +43,7 @@
     String serviceScope = "";
     //serviceName = (ruleService.getName() == null) ? "" : ruleService.getName();
        // description = (ruleService.getDescription() == null) ? "" : ruleService.getDescription();
-      if(!ruleService.isEditable()){
+      if(ruleService!=null){
         serviceName = (ruleService.getName() == null) ? "" : ruleService.getName();
         description = (ruleService.getDescription() == null) ? "" : ruleService.getDescription();
         serviceScope = (ruleService.getScope() == null) ? "" : ruleService.getScope();
@@ -45,7 +57,7 @@
     <carbon:breadcrumb
             label="step1.msg"
             resourceBundle="org.wso2.carbon.rule.ws.ui.i18n.Resources"
-            topPage="false"
+            topPage="true"
             request="<%=request%>"/>
     <script type="text/javascript">
         function validateStep1() {

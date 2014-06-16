@@ -111,6 +111,9 @@ public class RuleServiceFileAdminHandler extends AbstractRuleServiceAdminHandler
     public void deleteRuleFile(AxisConfiguration axisConfiguration, String serviceName, String fileName) throws RuleServiceAdminException {
         //To change body of implemented methods use File | Settings | File Templates.
     }
+    public void deleteTempRuleServiceDirectory(String serviceName) throws RuleServiceAdminException {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
 
     private Paths createTempRuleServiceFile(AxisConfiguration axisConfig,
                                             String serviceName) throws RuleServiceAdminException {
