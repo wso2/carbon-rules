@@ -21,10 +21,13 @@ package org.wso2.carbon.rule.ws.admin;
 import org.apache.axiom.om.OMElement;
 import org.apache.axis2.description.AxisService;
 import org.apache.axis2.engine.AxisConfiguration;
+import org.wso2.carbon.rule.common.util.Constants;
 import org.wso2.carbon.rule.ws.admin.exception.RuleServiceAdminException;
 import org.wso2.carbon.rule.common.RuleService;
+import org.wso2.carbon.utils.FileManipulator;
 
 import javax.activation.DataHandler;
+import java.io.File;
 
 /**
  * Handler for executing rule service management operations for rule services
@@ -128,6 +131,13 @@ public interface RuleServiceAdminHandler {
     public void deleteRuleFile(AxisConfiguration axisConfiguration,
                                String serviceName,
                                String fileName) throws RuleServiceAdminException;
+
+    /**
+     * Delete the rule temp Directory in a rule service
+     *
+     * @param serviceName       the name of the rule service
+     */
+    public void deleteTempRuleServiceDirectory(String serviceName) throws RuleServiceAdminException ;
 }
 
 

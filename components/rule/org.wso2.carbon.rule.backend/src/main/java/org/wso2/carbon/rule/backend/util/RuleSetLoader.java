@@ -27,7 +27,6 @@ import org.wso2.carbon.rule.common.exception.RuleConfigurationException;
 import org.wso2.carbon.rule.common.util.Constants;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -40,9 +39,9 @@ public class RuleSetLoader {
     public static InputStream getRuleSetAsStream(Rule rule, ClassLoader classLoader) throws RuleConfigurationException {
         InputStream ruleInputStream = null;
 
-        if (rule.getSourceType().equals(Constants.RULE_SOURCE_TYPE_INLINE)) {
+        if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_INLINE)) {
             ruleInputStream = new ByteArrayInputStream(rule.getValue().getBytes());
-        } else if (rule.getSourceType().equals(Constants.RULE_SOURCE_TYPE_REGISTRY)) {
+        } else if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_REGISTRY)) {
             String[] vale = rule.getValue().split(":");
             String type = vale[0];
             String key = vale[1];
@@ -53,10 +52,10 @@ public class RuleSetLoader {
                 throw new RuleConfigurationException("Can not access the registry : ", e);
             }
 
-        } else if (rule.getSourceType().equals(Constants.RULE_SOURCE_TYPE_FILE)) {
+        } else if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_FILE)) {
             ruleInputStream = classLoader.getResourceAsStream(
                     Constants.RULE_SOURCE_FILE_DIRECTORY + "/" + rule.getValue());
-        } else if (rule.getSourceType().equals(Constants.RULE_SOURCE_TYPE_URL)) {
+        } else if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_URL)) {
             String url = rule.getValue();
             try {
 

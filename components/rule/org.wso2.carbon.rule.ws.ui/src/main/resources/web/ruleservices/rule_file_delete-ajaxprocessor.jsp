@@ -32,7 +32,9 @@
             ruleServiceAdminClient.deleteRuleFile(ruleService,filename, session);
         }
         Map<String, String> scriptList = (Map<String, String>) session.getAttribute(RuleServiceAdminClient.SCRIPTS);
+      if(scriptList!=null){
         scriptList.remove(filename);
+        }
         session.setAttribute(RuleServiceAdminClient.SCRIPTS, scriptList);
 
     }

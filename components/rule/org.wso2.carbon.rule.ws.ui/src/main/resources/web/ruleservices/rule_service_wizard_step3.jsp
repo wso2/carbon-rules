@@ -22,6 +22,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://wso2.org/projects/carbon/taglibs/carbontags.jar" prefix="carbon" %>
 <script type="text/javascript" src="js/rule-services.js"></script>
+<jsp:include page="../dialog/display_messages.jsp"/>
 <%
     //    String[] classes = (String[]) session.getAttribute(RuleServiceAdminClient.FACTS);
     RuleServiceAdminClient ruleServiceAdminClient =
@@ -50,7 +51,7 @@
             request="<%=request%>" i18nObjectName="ruleservicejsi18n"/>
     <carbon:breadcrumb label="upload.ruleservice.facts"
                        resourceBundle="org.wso2.carbon.rule.ws.ui.i18n.Resources"
-                       topPage="true" request="<%=request%>"/>
+                       topPage="false" request="<%=request%>"/>
 
     <script type="text/javascript">
         function validate() {
@@ -63,6 +64,20 @@
                 document.factUpload.submit();
             }
         }
+        function validateNext() {
+
+                    var ruleScriptCount = document.getElementById("ruleScriptCount");
+                    var ruleScriptHiddenCount = document.getElementById("ruleScriptHiddenCount");
+                    var j = ruleScriptHiddenCount.value;
+                    var i = ruleScriptCount.value;
+                    if (i == 0 || j >= i) {
+                        CARBON.showErrorDialog('<fmt:message key="upload.facts.empty"/>');
+                        return false;
+                    }
+
+                document.dataForm.submit();
+                return true;
+            }
     </script>
 
     <div id="middle">
@@ -108,7 +123,7 @@
 
                     <td>
                         <table id="factArchiveListTable" class="normal">
-                                <%
+                                <% int i=0;
                                     if(factArchiveList != null && !factArchiveList.isEmpty()) {
                                         for(String factArchieName : factArchiveList){
 
@@ -121,7 +136,11 @@
                                 <td><a href="#" href="#" class="delete-icon-link" style="padding-left:40px"
                                        onclick="deleteFactArchives('<%=factArchieName%>')"><fmt:message
                                         key="delete"/></a></td>
-                                <% } } %>
+                                <%i++; } } %>
+                                                          <input type="hidden" name="ruleScriptCount" id="ruleScriptCount"
+                                                                                           value="<%=i%>"/>
+                                                                                    <input type="hidden" name="ruleScriptHiddenCount" id="ruleScriptHiddenCount"
+                                                                                           value="<%=0%>"/>
                             </tr>
                         </table>
                     </td>
@@ -158,8 +177,8 @@
                             <input type="hidden" id="stepID" name="stepID" value="step3"/>
                             <input class="button" type="button" value="< <fmt:message key="back"/>"
                                    onclick="location.href = 'rule_service_wizard_step2.jsp'"/>
-                            <input class="button" type="submit"
-                                   value="<fmt:message key="next"/> >"/>
+                            <input class="button" type="button" onclick="validateNext()"
+                                                           value="<fmt:message key="next"/> >"/>
                             <input class="button" type="button" value="<fmt:message key="cancel"/>"
                                    onclick="location.href = 'cancel_handler.jsp'"/>
                         </form>

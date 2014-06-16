@@ -25,7 +25,7 @@
             new RuleServiceAdminClient(config.getServletContext(), session);
     RuleService ruleService = ruleServiceAdminClient.getRuleServiceDescription(request);
         Map<String, String> scriptList = (Map<String, String>) session.getAttribute(RuleServiceAdminClient.SCRIPTS);
-    if(!scriptList.isEmpty()){
+    if(scriptList!=null && !scriptList.isEmpty()){
         ruleServiceAdminClient.deleteAllRuleFiles(ruleService, session);
 
     }
