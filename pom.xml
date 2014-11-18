@@ -597,7 +597,7 @@
 	<previous.version.320>3.2.0</previous.version.320>
         <version.jettison>1.3.4</version.jettison>
         <wso2carbon.version>4.3.0-SNAPSHOT</wso2carbon.version>
-        <orbit.version.axiom>1.2.11.wso2v5-SNAPSHOT</orbit.version.axiom>
+        <orbit.version.axiom>1.2.11.wso2v5</orbit.version.axiom>
         <orbit.version.axis2>1.6.1.wso2v11-SNAPSHOT</orbit.version.axis2>
         <axis2.wso2.version.aar.plugin>1.6.2</axis2.wso2.version.aar.plugin>
         <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
@@ -624,8 +624,8 @@
         <stratos.version>2.3.0-SNAPSHOT</stratos.version>
 
         <!-- Axiom Version -->
-        <axiom.wso2.version>1.2.11.wso2v5-SNAPSHOT</axiom.wso2.version>
-        <version.axiom>1.2.11-wso2v5-SNAPSHOT</version.axiom>
+        <axiom.wso2.version>1.2.11.wso2v5</axiom.wso2.version>
+        <version.axiom>1.2.11-wso2v5</version.axiom>
         <axiom.osgi.version.range>[1.2.11.wso2v5, 1.3.0)</axiom.osgi.version.range>
 
         <!-- Axis2 Version -->
