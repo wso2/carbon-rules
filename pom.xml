@@ -18,17 +18,45 @@
 
     <dependencyManagement>
         <dependencies>
-        <dependency>
-            <groupId>org.apache.axis2.wso2</groupId>
-            <artifactId>axis2</artifactId>
-	    <version>${orbit.version.axis2}</version>
-        </dependency>
+            <!-- Carbon Kernel Dependencies-->
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.logging</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.utils</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.core</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.core.server.feature</artifactId>
+                <version>${carbon.kernel.version}</version>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.ui</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
 
-        <dependency>
-            <groupId>org.apache.axis2.wso2</groupId>
-            <artifactId>axis2-client</artifactId>
-	    <version>${orbit.version.axis2}</version>
-        </dependency>
+            <dependency>
+                <groupId>org.apache.axis2.wso2</groupId>
+                <artifactId>axis2</artifactId>
+                <version>${orbit.version.axis2}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.axis2.wso2</groupId>
+                <artifactId>axis2-client</artifactId>
+                <version>${orbit.version.axis2}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.apache.ws.commons.axiom.wso2</groupId>
@@ -36,17 +64,17 @@
                 <version>${orbit.version.axiom}</version>
             </dependency>
 
-         <dependency>
+            <dependency>
                 <groupId>org.drools</groupId>
                 <artifactId>drools-jsr94</artifactId>
                 <version>${version.drools}</version>
-         </dependency>
+            </dependency>
 
-         <dependency>
+            <dependency>
                 <groupId>org.drools.wso2</groupId>
                 <artifactId>drools</artifactId>
                 <version>${orbit.version.drools}</version>
-         </dependency>
+            </dependency>
 
             <dependency>
                 <groupId>org.drools</groupId>
@@ -64,18 +92,6 @@
                 <groupId>org.drools</groupId>
                 <artifactId>drools-compiler</artifactId>
                 <version>${version.drools}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.logging</artifactId>
-                <version>${carbon.platform.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.core</artifactId>
-                <version>${carbon.platform.version}</version>
             </dependency>
 
             <dependency>
@@ -175,12 +191,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.ui</artifactId>
-                <version>${carbon.kernel.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>jsr94</groupId>
                 <artifactId>jsr94</artifactId>
                 <version>${version.jsr94}</version>
@@ -274,35 +284,16 @@
                 </exclusions>
             </dependency>
 
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.utils</artifactId>
-            <version>${carbon.platform.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.rule.ws.stub</artifactId>
-            <version>${carbon.platform.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.service.mgt.stub</artifactId>
-            <version>${carbon.platform.version}</version>
-        </dependency>
-
-	    <dependency>
-            	<groupId>org.wso2.carbon</groupId>
-          	<artifactId>org.wso2.carbon.rule.service.stub</artifactId>
-	        <version>${carbon.platform.version}</version>
-       	    </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.service.mgt.stub</artifactId>
+                <version>${carbon.platform.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.core.server.feature</artifactId>
-            	<version>${carbon.platform.version}</version>
-                <type>zip</type>
+                <artifactId>org.wso2.carbon.rule.service.stub</artifactId>
+                <version>${carbon.platform.version}</version>
             </dependency>
 
            <dependency>
@@ -319,18 +310,18 @@
                 <type>zip</type>
             </dependency>
 
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.rule.mediation</artifactId>
-            <version>${carbon.platform.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.mediation</artifactId>
+                <version>${carbon.platform.version}</version>
+            </dependency>
 
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.rule.mediation.server.feature</artifactId>
-            <version>${carbon.platform.version}</version>
-            <type>zip</type>
-        </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.mediation.server.feature</artifactId>
+                <version>${carbon.platform.version}</version>
+                <type>zip</type>
+            </dependency>
 
             <dependency>
                 <groupId>org.wso2.carbon</groupId>
@@ -350,37 +341,37 @@
             	<version>${previous.version}</version>
             </dependency>
 
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.rule.service.server.feature</artifactId>
-            <version>${carbon.platform.version}</version>
-            <type>zip</type>
-	 </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.service.server.feature</artifactId>
+                <version>${carbon.platform.version}</version>
+                <type>zip</type>
+            </dependency>
 
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.rule.service.ui.feature</artifactId>
-            <version>${carbon.platform.version}</version>
-            <type>zip</type>
-	</dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.service.ui.feature</artifactId>
+                <version>${carbon.platform.version}</version>
+                <type>zip</type>
+            </dependency>
 
-        <dependency>
-            <groupId>antlr.wso2</groupId>
-            <artifactId>antlr</artifactId>
-            <version>${antlr.wso2.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>antlr.wso2</groupId>
+                <artifactId>antlr</artifactId>
+                <version>${antlr.wso2.version}</version>
+            </dependency>
 
-        <dependency>
-            <groupId>org.antlr.wso2</groupId>
-            <artifactId>antlr-runtime</artifactId>
-            <version>${antlr.wso2.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>org.antlr.wso2</groupId>
+                <artifactId>antlr-runtime</artifactId>
+                <version>${antlr.wso2.version}</version>
+            </dependency>
 
-	 <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.rule.ws.ui</artifactId>
-            <version>${carbon.platform.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.rule.ws.ui</artifactId>
+                <version>${carbon.platform.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
@@ -597,8 +588,8 @@
 	<previous.version.320>3.2.0</previous.version.320>
         <version.jettison>1.3.4</version.jettison>
         <wso2carbon.version>4.3.0-SNAPSHOT</wso2carbon.version>
-        <orbit.version.axiom>1.2.11.wso2v5-SNAPSHOT</orbit.version.axiom>
-        <orbit.version.axis2>1.6.1.wso2v11-SNAPSHOT</orbit.version.axis2>
+        <orbit.version.axiom>1.2.11.wso2v5</orbit.version.axiom>
+        <orbit.version.axis2>1.6.1.wso2v11</orbit.version.axis2>
         <axis2.wso2.version.aar.plugin>1.6.2</axis2.wso2.version.aar.plugin>
         <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
 
@@ -612,9 +603,12 @@
 	<joda-time.wso2>1.6.0.wso2v1</joda-time.wso2>
 	<org.mvel.wso2>2.1.0.wso2v1</org.mvel.wso2>
 
+        <!-- Carbon kernel version -->
+        <carbon.kernel.version>4.3.0-SNAPSHOT</carbon.kernel.version>
+        <carbon.kernel.package.import.version.range>[4.3.0.SNAPSHOT, 4.4.0)</carbon.kernel.package.import.version.range>
+
         <!-- Carbon platform version comes here-->
         <carbon.platform.version>4.3.0-SNAPSHOT</carbon.platform.version>
-        <carbon.kernel.version>4.3.0-SNAPSHOT</carbon.kernel.version>
         <carbon.platform.package.export.version>4.3.0-SNAPSHOT
         </carbon.platform.package.export.version>
         <carbon.platform.package.import.version.range>[4.3.0.SNAPSHOT, 4.4.0)
@@ -624,17 +618,17 @@
         <stratos.version>2.3.0-SNAPSHOT</stratos.version>
 
         <!-- Axiom Version -->
-        <axiom.wso2.version>1.2.11.wso2v5-SNAPSHOT</axiom.wso2.version>
-        <version.axiom>1.2.11-wso2v5-SNAPSHOT</version.axiom>
+        <axiom.wso2.version>1.2.11.wso2v5</axiom.wso2.version>
+        <version.axiom>1.2.11-wso2v5</version.axiom>
         <axiom.osgi.version.range>[1.2.11.wso2v5, 1.3.0)</axiom.osgi.version.range>
 
         <!-- Axis2 Version -->
-        <axis2.version>1.6.1-wso2v11-SNAPSHOT</axis2.version>
+        <axis2.version>1.6.1-wso2v11</axis2.version>
         <axis2-transports.version>1.1.0-wso2v11</axis2-transports.version>
-        <axis2.osgi.version.range>[1.6.1.wso2v11-SNAPSHOT, 1.7.0)</axis2.osgi.version.range>
+        <axis2.osgi.version.range>[1.6.1.wso2v11, 1.7.0)</axis2.osgi.version.range>
         <neethi.osgi.version>2.0.4.wso2v4</neethi.osgi.version>
         <neethi.osgi.version.range>[2.0.4.wso2v4, 3.1.0)</neethi.osgi.version.range>
-        <imp.pkg.version.axis2>[1.6.1.wso2v11-SNAPSHOT, 1.7.0)</imp.pkg.version.axis2>
+        <imp.pkg.version.axis2>[1.6.1.wso2v11, 1.7.0)</imp.pkg.version.axis2>
 
         <!-- Xerces Version -->
         <xercesImpl.version>2.8.1</xercesImpl.version>
@@ -779,7 +773,7 @@
 	<org.eclipse.osgi.version>3.5.0.v20090520</org.eclipse.osgi.version>
 	<simple-json.version>1.1</simple-json.version>
 	<batik.version>1.7.0.wso2v1</batik.version>
-	<synapse.version>2.2.0-SNAPSHOT</synapse.version>
+	<synapse.version>2.1.3-wso2v1-SNAPSHOT</synapse.version>
 	<orbit.version.commons.dbcp>1.4.0.wso2v1</orbit.version.commons.dbcp>
 	<geronimo.j2ee.connector.1.5.spec.version>1.0.0.wso2v1</geronimo.j2ee.connector.1.5.spec.version>
 	<geronimo-ejb_2.1_spec.version>1.1.0.wso2v1</geronimo-ejb_2.1_spec.version>
