@@ -63,7 +63,7 @@
                                 </properties>
                             </adviceFile>  
 			    <bundles>
-                                <bundleDef>org.wso2.carbon:org.wso2.carbon.rule.common</bundleDef>
+                                <bundleDef>org.wso2.carbon:org.wso2.carbon.rule.common:${carbon.rule.version}</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>
