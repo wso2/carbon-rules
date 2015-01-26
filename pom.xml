@@ -69,13 +69,13 @@
             <dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.logging</artifactId>
-                <version>${carbon.platform.version}</version>
+                <version>${carbon.kernel.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.core</artifactId>
-                <version>${carbon.platform.version}</version>
+                <version>${carbon.kernel.version}</version>
             </dependency>
 
             <dependency>
@@ -277,7 +277,7 @@
         <dependency>
             <groupId>org.wso2.carbon</groupId>
             <artifactId>org.wso2.carbon.utils</artifactId>
-            <version>${carbon.platform.version}</version>
+            <version>${carbon.kernel.version}</version>
         </dependency>
 
         <dependency>
@@ -301,7 +301,7 @@
             <dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.core.server.feature</artifactId>
-            	<version>${carbon.platform.version}</version>
+            	<version>${carbon.kernel.version}</version>
                 <type>zip</type>
             </dependency>
 
@@ -614,13 +614,12 @@
 
         <!-- Carbon platform version comes here-->
         <carbon.snapshot.version>4.3.0-SNAPSHOT</carbon.snapshot.version>
-        <carbon.platform.version>4.3.0</carbon.platform.version>
+        <!-- removing unnecessary version element -->
+        <!--<carbon.platform.version>4.3.0</carbon.platform.version>-->
         <carbon.kernel.version>4.3.0</carbon.kernel.version>
         <carbon.rule.version>4.3.0-SNAPSHOT</carbon.rule.version>
-        <carbon.platform.package.export.version>4.3.0-SNAPSHOT
-        </carbon.platform.package.export.version>
-        <carbon.platform.package.import.version.range>[4.3.0.SNAPSHOT, 4.4.0)
-        </carbon.platform.package.import.version.range>
+        <carbon.platform.package.export.version>4.3.0</carbon.platform.package.export.version>
+        <carbon.platform.package.import.version.range>[4.3.0, 4.4.0)</carbon.platform.package.import.version.range>
 
         <!-- Stratos Version -->
         <stratos.version>2.3.0-SNAPSHOT</stratos.version>
