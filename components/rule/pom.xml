@@ -32,14 +32,15 @@
     <name>WSO2 Carbon - Rule Aggregator Module</name>
     <url>http://wso2.org</url>
 
-            <modules>
-                <module>org.wso2.carbon.rule.common</module>
-		<module>org.wso2.carbon.rule.ws</module>
-		<module>org.wso2.carbon.rule.kernel</module>
-		<module>org.wso2.carbon.rule.backend</module>
-		<module>org.wso2.carbon.rule.ws.admin</module>
-		<module>org.wso2.carbon.rule.ws.ui</module>
-		<module>org.wso2.carbon.rule.mediation</module>
-            </modules>
+    <modules>
+        <module>org.wso2.carbon.application.deployer.rule</module>
+        <module>org.wso2.carbon.rule.common</module>
+        <module>org.wso2.carbon.rule.ws</module>
+        <module>org.wso2.carbon.rule.kernel</module>
+        <module>org.wso2.carbon.rule.backend</module>
+        <module>org.wso2.carbon.rule.ws.admin</module>
+        <module>org.wso2.carbon.rule.ws.ui</module>
+        <module>org.wso2.carbon.rule.mediation</module>
+    </modules>
 
 </project>

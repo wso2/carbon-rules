@@ -33,9 +33,7 @@
     <url>http://wso2.org</url>
 
             <modules>
-<!--                <module>org.wso2.carbon.rule.engine.jsr94.feature</module>
-                <module>org.wso2.carbon.rule.engine.drools.feature</module>
-                <module>org.wso2.carbon.rule.mediator.feature</module> -->
+                <module>application-deployer/org.wso2.carbon.application.deployer.rule.feature</module> 
                 <module>service</module>
                 <module>mediation</module>
             </modules>
