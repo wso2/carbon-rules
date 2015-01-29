@@ -629,6 +629,7 @@
         <!--<carbon.platform.version>4.3.0</carbon.platform.version>-->
         <carbon.kernel.version>4.3.0</carbon.kernel.version>
         <carbon.rule.version>4.3.0-SNAPSHOT</carbon.rule.version>
+        <carbon.platform.version>4.3.0</carbon.platform.version>
         <carbon.platform.package.export.version>4.3.0</carbon.platform.package.export.version>
         <carbon.platform.package.import.version.range>[4.3.0, 4.4.0)
         </carbon.platform.package.import.version.range>
