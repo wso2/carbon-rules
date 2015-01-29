@@ -84,35 +84,35 @@
                 <version>${carbon.kernel.version}</version>
             </dependency>
 
-            <dependency>
+            <!--dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.rulecep.adapters</artifactId>
                 <version>${previous.version.320}</version>
-            </dependency>
+            </dependency-->
 
-            <dependency>
+            <!--dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.rulecep.commons</artifactId>
                 <version>${previous.version.320}</version>
-            </dependency>
+            </dependency-->
 
-            <dependency>
+            <!--dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.rulecep.adapters.service</artifactId>
                 <version>${previous.version.320}</version>
-            </dependency>
+            </dependency-->
 
-            <dependency>
+            <!--dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.rulecep.service</artifactId>
                 <version>${previous.version.320}</version>
-            </dependency>
+            </dependency-->
 
-            <dependency>
+            <!--dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.rule.core</artifactId>
                 <version>${previous.version.320}</version>
-            </dependency>
+            </dependency-->
 
             <dependency>
                 <groupId>org.wso2.carbon</groupId>
@@ -138,23 +138,23 @@
                 <version>${carbon.rule.version}</version>
             </dependency>
 
-            <dependency>
+            <!--dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.rule.server</artifactId>
                 <version>${previous.version.320}</version>
-            </dependency>
+            </dependency-->
 
-            <dependency>
+            <!--dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.rule.engine.drools</artifactId>
                 <version>${previous.version.320}</version>
-            </dependency>
+            </dependency-->
 
-            <dependency>
+            <!--dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.rule.engine.jsr94</artifactId>
                 <version>${previous.version.320}</version>
-            </dependency>
+            </dependency-->
 
             <dependency>
                 <groupId>org.wso2.carbon</groupId>

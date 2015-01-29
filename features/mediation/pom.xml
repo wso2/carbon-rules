@@ -46,12 +46,12 @@
 
             <dependency>
                 <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.rule.core</artifactId>
+                <artifactId>org.wso2.carbon.rule.kernel</artifactId>
             </dependency>
 
             <dependency>
                 <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.rule.server</artifactId>
+                <artifactId>org.wso2.carbon.rule.backend</artifactId>
             </dependency>
 
             <dependency>
