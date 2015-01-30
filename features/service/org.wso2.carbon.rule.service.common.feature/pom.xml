@@ -20,7 +20,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>org.wso2.carbon</groupId>
+        <groupId>org.wso2.carbon.rules</groupId>
         <artifactId>service</artifactId>
         <version>4.3.0-SNAPSHOT</version>
 	<relativePath>../pom.xml</relativePath>
@@ -36,7 +36,7 @@
     </description>
     <dependencies>
 	 <dependency>
-            <groupId>org.wso2.carbon</groupId>
+            <groupId>org.wso2.carbon.rules</groupId>
             <artifactId>org.wso2.carbon.rule.common</artifactId>
         </dependency>
     </dependencies>
@@ -63,7 +63,7 @@
                                 </properties>
                             </adviceFile>  
 			    <bundles>
-                                <bundleDef>org.wso2.carbon:org.wso2.carbon.rule.common:${carbon.rule.version}</bundleDef>
+                                <bundleDef>org.wso2.carbon.rules:org.wso2.carbon.rule.common:${carbon.rules.version}</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>

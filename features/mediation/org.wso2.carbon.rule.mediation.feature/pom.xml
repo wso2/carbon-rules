@@ -20,10 +20,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>org.wso2.carbon</groupId>
+        <groupId>org.wso2.carbon.rules</groupId>
         <artifactId>rule-mediation</artifactId>
         <version>4.3.0-SNAPSHOT</version>
-	<relativePath>../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -32,11 +32,12 @@
     <packaging>pom</packaging>
     <name>WSO2 Carbon - Rule Mediation Feature</name>
     <url>http://wso2.org</url>
-    <description>This feature contains the bundles required for Rule Mediation functionality</description>
+    <description>This feature contains the bundles required for Rule Mediation functionality
+    </description>
 
     <dependencies>
         <dependency>
-            <groupId>org.wso2.carbon</groupId>
+            <groupId>org.wso2.carbon.rules</groupId>
             <artifactId>org.wso2.carbon.rule.mediation.server.feature</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
@@ -58,12 +59,15 @@
                         </goals>
                         <configuration>
                             <id>org.wso2.carbon.rule.mediation</id>
-                            <propertiesFile>../../../../etc/feature.properties</propertiesFile>                           
+                            <propertiesFile>../../../../etc/feature.properties</propertiesFile>
                             <importFeatures>
-                                <importFeatureDef>org.wso2.carbon.core:${carbon.platform.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.carbon.core:${carbon.kernel.version}
+                                </importFeatureDef>
                             </importFeatures>
                             <includedFeatures>
-                                <includedFeatureDef>org.wso2.carbon:org.wso2.carbon.rule.mediation.server.feature</includedFeatureDef>
+                                <includedFeatureDef>
+                                    org.wso2.carbon.rules:org.wso2.carbon.rule.mediation.server.feature
+                                </includedFeatureDef>
                             </includedFeatures>
                         </configuration>
                     </execution>

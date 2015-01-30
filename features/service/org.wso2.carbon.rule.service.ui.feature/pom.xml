@@ -20,10 +20,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>org.wso2.carbon</groupId>
+        <groupId>org.wso2.carbon.rules</groupId>
         <artifactId>service</artifactId>
         <version>4.3.0-SNAPSHOT</version>
-	<relativePath>../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -35,16 +35,16 @@
     <description>This feature contains the bundles required for Rule Service UI functionality
     </description>
     <dependencies>
-	 <dependency>
-            <groupId>org.wso2.carbon</groupId>
+        <dependency>
+            <groupId>org.wso2.carbon.rules</groupId>
             <artifactId>org.wso2.carbon.rule.ws.ui</artifactId>
         </dependency>
-	<dependency>
-            <groupId>org.wso2.carbon</groupId>
+        <dependency>
+            <groupId>org.wso2.carbon.rules</groupId>
             <artifactId>org.wso2.carbon.rule.ws.stub</artifactId>
         </dependency>
-	 <dependency>
-            <groupId>org.wso2.carbon</groupId>
+        <dependency>
+            <groupId>org.wso2.carbon.rules</groupId>
             <artifactId>org.wso2.carbon.rule.common</artifactId>
         </dependency>
     </dependencies>
@@ -64,22 +64,29 @@
                         <configuration>
                             <id>org.wso2.carbon.rule.service.ui</id>
                             <propertiesFile>../../../../etc/feature.properties</propertiesFile>
-			    <adviceFile>
+                            <adviceFile>
                                 <properties>
-                                    <propertyDef>org.wso2.carbon.p2.category.type:console</propertyDef>
-                                    <propertyDef>org.eclipse.equinox.p2.type.group:false</propertyDef>
+                                    <propertyDef>org.wso2.carbon.p2.category.type:console
+                                    </propertyDef>
+                                    <propertyDef>org.eclipse.equinox.p2.type.group:false
+                                    </propertyDef>
                                 </properties>
-                            </adviceFile>  
-			<bundles>
-                                <bundleDef>org.wso2.carbon:org.wso2.carbon.rule.ws.ui</bundleDef>
-				<bundleDef>org.wso2.carbon:org.wso2.carbon.rule.ws.stub</bundleDef>
+                            </adviceFile>
+                            <bundles>
+                                <bundleDef>org.wso2.carbon.rules:org.wso2.carbon.rule.ws.ui</bundleDef>
+                                <bundleDef>org.wso2.carbon.rules:org.wso2.carbon.rule.ws.stub</bundleDef>
                             </bundles>
                             <importFeatures>
-                                <importFeatureDef>org.wso2.carbon.service.mgt.ui:${carbon.kernel.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbon.core.ui:${carbon.kernel.version}</importFeatureDef>
+                                <importFeatureDef>
+                                    org.wso2.carbon.service.mgt.ui:${carbon.kernel.version}
+                                </importFeatureDef>
+                                <importFeatureDef>org.wso2.carbon.core.ui:${carbon.kernel.version}
+                                </importFeatureDef>
                             </importFeatures>
-			    <includedFeatures>
-                                <includedFeatureDef>org.wso2.carbon:org.wso2.carbon.rule.service.common.feature</includedFeatureDef>
+                            <includedFeatures>
+                                <includedFeatureDef>
+                                    org.wso2.carbon.rules:org.wso2.carbon.rule.service.common.feature
+                                </includedFeatureDef>
                             </includedFeatures>
                         </configuration>
                     </execution>

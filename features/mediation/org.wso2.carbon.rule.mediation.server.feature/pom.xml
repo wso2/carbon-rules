@@ -20,10 +20,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>org.wso2.carbon</groupId>
+        <groupId>org.wso2.carbon.rules</groupId>
         <artifactId>rule-mediation</artifactId>
         <version>4.3.0-SNAPSHOT</version>
-	<relativePath>../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -32,22 +32,23 @@
     <packaging>pom</packaging>
     <name>WSO2 Carbon - Rule Mediation Server Feature</name>
     <url>http://wso2.org</url>
-    <description>This feature contains the bundles required for Back-end Rule functionality</description>
+    <description>This feature contains the bundles required for Back-end Rule functionality
+    </description>
     <dependencies>
-         <dependency>
-            <groupId>org.wso2.carbon</groupId>
+        <dependency>
+            <groupId>org.wso2.carbon.rules</groupId>
             <artifactId>org.wso2.carbon.rule.kernel</artifactId>
-         </dependency>
-	 <dependency>
-            <groupId>org.wso2.carbon</groupId>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.rules</groupId>
             <artifactId>org.wso2.carbon.rule.mediation</artifactId>
         </dependency>
-	 <dependency>
-            <groupId>org.wso2.carbon</groupId>
+        <dependency>
+            <groupId>org.wso2.carbon.rules</groupId>
             <artifactId>org.wso2.carbon.rule.common</artifactId>
         </dependency>
-	 <dependency>
-            <groupId>org.wso2.carbon</groupId>
+        <dependency>
+            <groupId>org.wso2.carbon.rules</groupId>
             <artifactId>org.wso2.carbon.rule.backend</artifactId>
         </dependency>
         <dependency>
@@ -85,7 +86,7 @@
     </dependencies>
     <build>
         <plugins>
-       <plugin>
+            <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
                     <execution>
@@ -133,9 +134,10 @@
                                 </properties>
                             </adviceFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbon:org.wso2.carbon.rule.backend</bundleDef>
-				<bundleDef>org.wso2.carbon:org.wso2.carbon.rule.kernel</bundleDef>
-				<bundleDef>org.wso2.carbon:org.wso2.carbon.rule.mediation</bundleDef>
+                                <bundleDef>org.wso2.carbon.rules:org.wso2.carbon.rule.backend</bundleDef>
+                                <bundleDef>org.wso2.carbon.rules:org.wso2.carbon.rule.kernel</bundleDef>
+                                <bundleDef>org.wso2.carbon.rules:org.wso2.carbon.rule.mediation
+                                </bundleDef>
                                 <bundleDef>org.drools.wso2:drools</bundleDef>
                                 <bundleDef>org.mvel.wso2:mvel2</bundleDef>
                                 <bundleDef>joda-time.wso2:joda-time</bundleDef>
@@ -146,10 +148,14 @@
                                 <bundleDef>jsr94.wso2:jsr94</bundleDef>
                             </bundles>
                             <importFeatures>
-                                <importFeatureDef>org.wso2.carbon.core.server:${carbon.platform.version}</importFeatureDef>
+                                <importFeatureDef>
+                                    org.wso2.carbon.core.server:${carbon.kernel.version}
+                                </importFeatureDef>
                             </importFeatures>
                             <includedFeatures>
-                                <includedFeatureDef>org.wso2.carbon:org.wso2.carbon.rule.mediation.common.feature</includedFeatureDef>
+                                <includedFeatureDef>
+                                    org.wso2.carbon.rules:org.wso2.carbon.rule.mediation.common.feature
+                                </includedFeatureDef>
                             </includedFeatures>
                         </configuration>
                     </execution>
@@ -157,6 +163,6 @@
             </plugin>
         </plugins>
     </build>
-   <properties>
+    <properties>
     </properties>
 </project>
