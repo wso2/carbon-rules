@@ -576,9 +576,9 @@
         <carbon.platform.package.import.version.range>[4.3.0, 4.4.0)
         </carbon.platform.package.import.version.range>
 
-        <!-- Stratos Version -->
+        <!-- Stratos Version 
         <stratos.version>2.3.0-SNAPSHOT</stratos.version>
-
+	-->
         <!-- Carbon Platform Version -->
         <!--<carbon.platform.version>4.3.0-SNAPSHOT</carbon.platform.version>-->
         <!--<carbon.platform.package.export.version>4.3.0</carbon.platform.package.export.version>-->
@@ -596,7 +596,7 @@
 
         <!-- Axis2 Version -->
         <axis2.version>1.6.1-wso2v11</axis2.version>
-        <axis2-transports.version>1.1.0-wso2v11</axis2-transports.version>
+        <!--axis2-transports.version>1.1.0-wso2v11</axis2-transports.version-->
         <axis2.osgi.version.range>[1.6.1.wso2v11, 1.7.0)</axis2.osgi.version.range>
         <neethi.osgi.version>2.0.4.wso2v4</neethi.osgi.version>
         <neethi.osgi.version.range>[2.0.4.wso2v4, 3.1.0)</neethi.osgi.version.range>
