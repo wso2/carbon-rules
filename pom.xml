@@ -535,7 +535,7 @@
     <properties>
 
         <!-- Carbon Rules Version -->
-        <carbon.rules.version>4.3.0</carbon.rules.version>
+        <carbon.rules.version>4.3.0-SNAPSHOT</carbon.rules.version>
         <carbon.rules.imp.pkg.version>[4.3.0,4.4.0)</carbon.rules.imp.pkg.version>
         <carbon.rules.exp.pkg.version>4.3.0</carbon.rules.exp.pkg.version>
 
