@@ -77,11 +77,8 @@
                                 <bundleDef>org.wso2.carbon.rules:org.wso2.carbon.rule.ws.stub</bundleDef>
                             </bundles>
                             <importFeatures>
-                                <importFeatureDef>
-                                    org.wso2.carbon.service.mgt.ui:${carbon.kernel.version}
-                                </importFeatureDef>
-                                <importFeatureDef>org.wso2.carbon.core.ui:${carbon.kernel.version}
-                                </importFeatureDef>
+                                <importFeatureDef>org.wso2.carbon.service.mgt.ui</importFeatureDef>
+                                <importFeatureDef>org.wso2.carbon.core.ui:${carbon.kernel.version}</importFeatureDef>
                             </importFeatures>
                             <includedFeatures>
                                 <includedFeatureDef>
