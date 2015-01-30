@@ -536,8 +536,8 @@
 
         <!-- Carbon Rules Version -->
         <carbon.rules.version>4.3.0-SNAPSHOT</carbon.rules.version>
-        <carbon.rules.imp.pkg.version>[4.3.0-SNAPSHOT,4.4.0)</carbon.rules.imp.pkg.version>
-        <carbon.rules.exp.pkg.version>4.3.0-SNAPSHOT</carbon.rules.exp.pkg.version>
+        <carbon.rules.imp.pkg.version>[4.3.0,4.4.0)</carbon.rules.imp.pkg.version>
+        <carbon.rules.exp.pkg.version>4.3.0</carbon.rules.exp.pkg.version>
 
 
         <!-- Drools Versions -->
@@ -563,8 +563,8 @@
         <carbon.identity.imp.pkg.version>[4.3.0, 4.4.0)</carbon.identity.imp.pkg.version>
 
         <!-- Carbon Deployment version -->
-        <carbon.deployment.version>4.3.0-SNAPSHOT</carbon.deployment.version>
-        <carbon.deployment.imp.pkg.version>[4.3.0-SNAPSHOT, 4.4.0)
+        <carbon.deployment.version>4.3.0</carbon.deployment.version>
+        <carbon.deployment.imp.pkg.version>[4.3.0, 4.4.0)
         </carbon.deployment.imp.pkg.version>
 
         <!-- Carbon registry version -->
@@ -610,7 +610,7 @@
         <version.javax.servlet>3.0.0.v201112011016</version.javax.servlet>
 
         <!-- Rampart Version -->
-        <rampart.wso2.version>1.6.1-wso2v13-SNAPSHOT</rampart.wso2.version>
+        <rampart.wso2.version>1.6.1-wso2v13</rampart.wso2.version>
 
         <libthrift.wso2.version>0.8.0.wso2v1</libthrift.wso2.version>
 
