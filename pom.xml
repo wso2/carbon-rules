@@ -571,6 +571,11 @@
         <carbon.registry.version>4.3.0</carbon.registry.version>
         <carbon.registry.imp.pkg.version>[4.3.0, 4.4.0)</carbon.registry.imp.pkg.version>
 
+        <carbon.platform.version>4.3.0</carbon.platform.version>
+        <carbon.platform.package.export.version>4.3.0</carbon.platform.package.export.version>
+        <carbon.platform.package.import.version.range>[4.3.0, 4.4.0)
+        </carbon.platform.package.import.version.range>
+
         <!-- Stratos Version -->
         <stratos.version>2.3.0-SNAPSHOT</stratos.version>
 
