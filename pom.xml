@@ -564,7 +564,7 @@
 
         <!-- Carbon Deployment version -->
         <carbon.deployment.version>4.3.0-SNAPSHOT</carbon.deployment.version>
-        <carbon.deployment.imp.pkg.version>[4.3.0, 4.4.0)
+        <carbon.deployment.imp.pkg.version>[4.3.0-SNAPSHOT, 4.4.0)
         </carbon.deployment.imp.pkg.version>
 
         <!-- Carbon registry version -->
