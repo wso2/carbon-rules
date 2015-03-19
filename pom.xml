@@ -341,8 +341,8 @@
                 <version>2.3.1</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -549,12 +549,12 @@
         <org.mvel.wso2>2.1.0.wso2v1</org.mvel.wso2>
 
         <!-- Carbon Kernel Versions -->
-        <carbon.kernel.version>4.3.0</carbon.kernel.version>
-        <carbon.kernel.imp.pkg.version>[4.3.0, 4.4.0)</carbon.kernel.imp.pkg.version>
+        <carbon.kernel.version>4.4.0-SNAPSHOT</carbon.kernel.version>
+        <carbon.kernel.imp.pkg.version>[4.4.0, 4.5.0)</carbon.kernel.imp.pkg.version>
 
         <!-- Carbon commons version -->
-        <carbon.commons.version>4.3.1</carbon.commons.version>
-        <carbon.commons.imp.pkg.version>[4.3.1, 4.4.0)</carbon.commons.imp.pkg.version>
+        <carbon.commons.version>4.3.6-SNAPSHOT</carbon.commons.version>
+        <carbon.commons.imp.pkg.version>[4.3.0, 4.4.0)</carbon.commons.imp.pkg.version>
 
         <!-- Carbon Identity version -->
         <carbon.identity.version>4.3.0</carbon.identity.version>
@@ -569,9 +569,9 @@
         <carbon.registry.version>4.3.0</carbon.registry.version>
         <carbon.registry.imp.pkg.version>[4.3.0, 4.4.0)</carbon.registry.imp.pkg.version>
 
-        <carbon.platform.version>4.3.0</carbon.platform.version>
-        <carbon.platform.package.export.version>4.3.0</carbon.platform.package.export.version>
-        <carbon.platform.package.import.version.range>[4.3.0, 4.4.0)
+        <carbon.platform.version>4.4.0</carbon.platform.version>
+        <carbon.platform.package.export.version>4.4.0</carbon.platform.package.export.version>
+        <carbon.platform.package.import.version.range>[4.4.0, 4.5.0)
         </carbon.platform.package.import.version.range>
 
         <!-- Stratos Version 
@@ -585,20 +585,20 @@
 
 
         <!-- Axiom Version -->
-        <axiom.wso2.version>1.2.11.wso2v5</axiom.wso2.version>
-        <version.axiom>1.2.11-wso2v5</version.axiom>
-        <axiom.osgi.version.range>[1.2.11.wso2v5, 1.3.0)</axiom.osgi.version.range>
-        <orbit.version.axiom>1.2.11.wso2v5</orbit.version.axiom>
-        <orbit.version.axis2>1.6.1.wso2v11</orbit.version.axis2>
+        <axiom.wso2.version>1.2.11-wso2v6</axiom.wso2.version>
+        <version.axiom>1.2.11-wso2v6</version.axiom>
+        <axiom.osgi.version.range>[1.2.11.wso2v6, 1.3.0)</axiom.osgi.version.range>
+        <orbit.version.axiom>1.2.11.wso2v6</orbit.version.axiom>
+        <orbit.version.axis2>1.6.1.wso2v12-SNAPSHOT</orbit.version.axis2>
 
 
         <!-- Axis2 Version -->
-        <axis2.version>1.6.1-wso2v11</axis2.version>
+        <axis2.version>1.6.1.wso2v12-SNAPSHOT</axis2.version>
         <!--axis2-transports.version>1.1.0-wso2v11</axis2-transports.version-->
-        <axis2.osgi.version.range>[1.6.1.wso2v11, 1.7.0)</axis2.osgi.version.range>
+        <axis2.osgi.version.range>[1.6.1.wso2v12, 1.7.0)</axis2.osgi.version.range>
         <neethi.osgi.version>2.0.4.wso2v4</neethi.osgi.version>
         <neethi.osgi.version.range>[2.0.4.wso2v4, 3.1.0)</neethi.osgi.version.range>
-        <imp.pkg.version.axis2>[1.6.1.wso2v11, 1.7.0)</imp.pkg.version.axis2>
+        <imp.pkg.version.axis2>[1.6.1.wso2v12, 1.7.0)</imp.pkg.version.axis2>
 
         <!-- Xerces Version -->
         <xercesImpl.version>2.8.1</xercesImpl.version>
@@ -635,8 +635,8 @@
         <jasperreports.wso2.version>3.7.1.wso2v1</jasperreports.wso2.version>
 
         <!-- Equinox dependency versions -->
-        <version.equinox.osgi>3.8.1.v20120830-144521</version.equinox.osgi>
-        <version.equinox.osgi.services>3.3.100.v20120522-1822</version.equinox.osgi.services>
+        <version.equinox.osgi>3.9.1.v20130814-1242</version.equinox.osgi>
+        <version.equinox.osgi.services>3.3.100.v20130513-1956</version.equinox.osgi.services>
 
         <!-- JSP API -->
         <exp.pkg.version.javax.servlet.jsp>2.2.0</exp.pkg.version.javax.servlet.jsp>
