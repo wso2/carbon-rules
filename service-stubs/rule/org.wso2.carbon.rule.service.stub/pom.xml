@@ -57,7 +57,7 @@
                                     <classpath refid="wsdl2java.classpath" />
                                 </java>
                                 <java classname="org.apache.axis2.wsdl.WSDL2Java" fork="true">
-                                    <arg line="-uri src/main/resources/RuleServiceAdmin.wsdl -u -uw -o target/generated-code -p org.wso2.carbon.rule.service.stub.wizard                                     -ns2p http://admin.service.rule.carbon.wso2.org=org.wso2.carbon.rule.service.stub.wizard.admin,http://service.rule.carbon.wso2.org/xsd=org.wso2.carbon.rule.service.stub.wizard.service.xsd,http://core.rule.carbon.wso2.org/xsd=org.wso2.carbon.rule.service.stub.wizard.core.xsd,http://org.apache.axis2/xsd=org.wso2.carbon.rule.service.stub.wizard.admin.axis2.xsd" />
+                                    <arg line="-uri src/main/resources/RuleServiceAdmin.wsdl -u -uw -o target/generated-code -p org.wso2.carbon.rule.service.stub.wizard -ns2p http://admin.service.rule.carbon.wso2.org=org.wso2.carbon.rule.service.stub.wizard.admin,http://service.rule.carbon.wso2.org/xsd=org.wso2.carbon.rule.service.stub.wizard.service.xsd,http://core.rule.carbon.wso2.org/xsd=org.wso2.carbon.rule.service.stub.wizard.core.xsd,http://org.apache.axis2/xsd=org.wso2.carbon.rule.service.stub.wizard.admin.axis2.xsd" />
                                     <classpath refid="wsdl2java.classpath" />
                                 </java>
                             </tasks>
