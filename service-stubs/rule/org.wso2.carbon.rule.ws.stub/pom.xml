@@ -95,7 +95,7 @@
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Private-Package>org.wso2.carbon.rule.core.internal</Private-Package>
                         <Export-Package>
-                            org.wso2.carbon.rule.ws.stub.*;version="${carbon.platform.package.export.version}",
+                            org.wso2.carbon.rule.ws.stub.*;version="${carbon.rules.exp.pkg.version}",
                         </Export-Package>
                         <Import-Package>
                             !javax.xml.namespace,

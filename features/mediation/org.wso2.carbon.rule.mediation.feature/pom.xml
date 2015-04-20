@@ -37,7 +37,7 @@
         <dependency>
             <groupId>org.wso2.carbon.rules</groupId>
             <artifactId>org.wso2.carbon.rule.mediation.server.feature</artifactId>
-            <version>${project.version}</version>
+            <version>${carbon.rules.version}</version>
             <type>zip</type>
         </dependency>
     </dependencies>
