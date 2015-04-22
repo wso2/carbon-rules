@@ -5,7 +5,7 @@
     <artifactId>carbon-rule</artifactId>
     <packaging>pom</packaging>
     <version>4.4.0-SNAPSHOT</version>
-    <name>WSO2 Carbon - Platform Aggregator Pom</name>
+    <name>WSO2 Carbon - Rule Aggregator Pom</name>
     <url>http://wso2.org</url>
 
     <parent>
