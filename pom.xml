@@ -562,25 +562,25 @@
         <org.mvel.wso2>2.1.0.wso2v1</org.mvel.wso2>
 
         <!-- Carbon Kernel Versions -->
-        <carbon.kernel.version>4.4.0</carbon.kernel.version>
+        <carbon.kernel.version>4.4.1</carbon.kernel.version>
         <carbon.kernel.imp.pkg.version>[4.4.0, 4.5.0)</carbon.kernel.imp.pkg.version>
         <carbon.kernel.registry.imp.pkg.version>[1.0.1, 2.0.0)</carbon.kernel.registry.imp.pkg.version>
 
         <!-- Carbon commons version -->
-        <carbon.commons.version>4.4.0</carbon.commons.version>
+        <carbon.commons.version>4.4.4</carbon.commons.version>
         <carbon.commons.imp.pkg.version>[4.4.0, 4.5.0)</carbon.commons.imp.pkg.version>
 
         <!-- Carbon Identity version -->
-        <carbon.identity.version>4.4.0</carbon.identity.version>
-        <carbon.identity.imp.pkg.version>[4.4.0, 4.5.0)</carbon.identity.imp.pkg.version>
+        <carbon.identity.version>4.5.4</carbon.identity.version>
+        <carbon.identity.imp.pkg.version>[4.5.0, 4.6.0)</carbon.identity.imp.pkg.version>
         
         <!-- Carbon Deployment version -->
-        <carbon.deployment.version>4.4.0</carbon.deployment.version>
+        <carbon.deployment.version>4.4.1</carbon.deployment.version>
         <carbon.deployment.imp.pkg.version>[4.4.0, 4.5.0)
         </carbon.deployment.imp.pkg.version>
 
         <!-- Carbon registry version -->
-        <carbon.registry.version>4.4.1</carbon.registry.version>
+        <carbon.registry.version>4.4.5</carbon.registry.version>
         <carbon.registry.imp.pkg.version>[4.4.0, 4.5.0)</carbon.registry.imp.pkg.version>
 
         <!-- Axiom Version -->
