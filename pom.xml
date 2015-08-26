@@ -353,7 +353,7 @@
                     <artifactId>maven-release-plugin</artifactId>
                     <configuration>
                         <preparationGoals>clean install</preparationGoals>
-                        <autoVersionSubmodules>false</autoVersionSubmodules>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -575,8 +575,8 @@
         <carbon.identity.imp.pkg.version>[4.5.0, 4.6.0)</carbon.identity.imp.pkg.version>
         
         <!-- Carbon Deployment version -->
-        <carbon.deployment.version>4.4.1</carbon.deployment.version>
-        <carbon.deployment.imp.pkg.version>[4.4.0, 4.5.0)
+        <carbon.deployment.version>4.5.0</carbon.deployment.version>
+        <carbon.deployment.imp.pkg.version>[4.5.0, 4.6.0)
         </carbon.deployment.imp.pkg.version>
 
         <!-- Carbon registry version -->
