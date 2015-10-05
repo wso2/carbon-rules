@@ -54,7 +54,7 @@
             <artifactId>drools</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.mvel.wso2</groupId>
+            <groupId>org.mvel</groupId>
             <artifactId>mvel2</artifactId>
         </dependency>
         <dependency>
@@ -137,7 +137,7 @@
                                 <bundleDef>org.wso2.carbon.rules:org.wso2.carbon.rule.mediation
                                 </bundleDef>
                                 <bundleDef>org.drools.wso2:drools</bundleDef>
-                                <bundleDef>org.mvel.wso2:mvel2</bundleDef>
+                                <bundleDef>org.mvel:mvel2</bundleDef>
                                 <bundleDef>joda-time.wso2:joda-time</bundleDef>
                                 <bundleDef>antlr.wso2:antlr</bundleDef>
                                 <bundleDef>org.antlr.wso2:antlr-runtime</bundleDef>

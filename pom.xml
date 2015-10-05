@@ -47,33 +47,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-jsr94</artifactId>
-                <version>${version.drools}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.drools.wso2</groupId>
                 <artifactId>drools</artifactId>
                 <version>${orbit.version.drools}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>knowledge-api</artifactId>
-                <version>${version.drools}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-core</artifactId>
-                <version>${version.drools}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-compiler</artifactId>
-                <version>${version.drools}</version>
             </dependency>
 
             <dependency>
@@ -148,12 +124,6 @@
             </dependency>
 
             <dependency>
-                <groupId>jsr94</groupId>
-                <artifactId>jsr94</artifactId>
-                <version>${version.jsr94}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>jsr94.wso2</groupId>
                 <artifactId>jsr94</artifactId>
                 <version>${jsr94.wso2}</version>
@@ -172,9 +142,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.mvel.wso2</groupId>
+                <groupId>org.mvel</groupId>
                 <artifactId>mvel2</artifactId>
-                <version>${org.mvel.wso2}</version>
+                <version>${version.mvel}</version>
             </dependency>
 
             <dependency>
@@ -552,14 +522,12 @@
 
 
         <!-- Drools Versions -->
-        <orbit.version.drools>5.6.0.wso2v1</orbit.version.drools>
-        <version.drools>5.6.0.Final</version.drools>
-        <version.jsr94>1.1</version.jsr94>
+        <orbit.version.drools>6.2.0.wso2v1</orbit.version.drools>
         <jsr94.wso2>1.1.0.wso2v1</jsr94.wso2>
-        <jxl.wso2>2.6.8.wso2v1</jxl.wso2>
+        <jxl.wso2>2.6.12.wso2v1</jxl.wso2>
         <janino.wso2>2.5.15.wso2v1</janino.wso2>
-        <joda-time.wso2>1.6.0.wso2v1</joda-time.wso2>
-        <org.mvel.wso2>2.1.0.wso2v1</org.mvel.wso2>
+        <joda-time.wso2>2.8.2.wso2v1</joda-time.wso2>
+        <version.mvel>2.2.4.Final</version.mvel>
 
         <!-- Carbon Kernel Versions -->
         <carbon.kernel.version>4.4.1</carbon.kernel.version>
