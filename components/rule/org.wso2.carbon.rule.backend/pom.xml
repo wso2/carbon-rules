@@ -48,7 +48,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.drools.wso2</groupId>
+            <!--groupId>org.drools.wso2</groupId-->
+            <groupId>org.wso2.orbit.org.drools</groupId>
             <artifactId>drools</artifactId>
         </dependency>
     </dependencies>

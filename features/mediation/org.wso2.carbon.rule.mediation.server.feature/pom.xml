@@ -50,7 +50,8 @@
             <artifactId>org.wso2.carbon.rule.backend</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.drools.wso2</groupId>
+            <!--groupId>org.drools.wso2</groupId-->
+            <groupId>org.wso2.orbit.org.drools</groupId>
             <artifactId>drools</artifactId>
         </dependency>
         <dependency>
@@ -58,7 +59,7 @@
             <artifactId>mvel2</artifactId>
         </dependency>
         <dependency>
-            <groupId>joda-time.wso2</groupId>
+            <groupId>org.wso2.orbit.joda-time</groupId>
             <artifactId>joda-time</artifactId>
         </dependency>
         <dependency>
@@ -70,15 +71,15 @@
             <artifactId>antlr-runtime</artifactId>
         </dependency>
         <dependency>
-            <groupId>janino.wso2</groupId>
+            <groupId>org.wso2.orbit.org.codehaus.janino</groupId>
             <artifactId>janino</artifactId>
         </dependency>
         <dependency>
-            <groupId>jxl.wso2</groupId>
+            <groupId>org.wso2.orbit.net.sourceforge.jexcelapi</groupId>
             <artifactId>jxl</artifactId>
         </dependency>
         <dependency>
-            <groupId>jsr94.wso2</groupId>
+            <groupId>org.wso2.orbit.jsr94</groupId>
             <artifactId>jsr94</artifactId>
         </dependency>
     </dependencies>
@@ -136,14 +137,14 @@
                                 <bundleDef>org.wso2.carbon.rules:org.wso2.carbon.rule.kernel</bundleDef>
                                 <bundleDef>org.wso2.carbon.rules:org.wso2.carbon.rule.mediation
                                 </bundleDef>
-                                <bundleDef>org.drools.wso2:drools</bundleDef>
+                                <bundleDef>org.wso2.orbit.org.drools:drools</bundleDef>
                                 <bundleDef>org.mvel:mvel2</bundleDef>
-                                <bundleDef>joda-time.wso2:joda-time</bundleDef>
+                                <bundleDef>org.wso2.orbit.joda-time:joda-time</bundleDef>
                                 <bundleDef>antlr.wso2:antlr</bundleDef>
                                 <bundleDef>org.antlr.wso2:antlr-runtime</bundleDef>
-                                <bundleDef>janino.wso2:janino</bundleDef>
-                                <bundleDef>jxl.wso2:jxl</bundleDef>
-                                <bundleDef>jsr94.wso2:jsr94</bundleDef>
+                                <bundleDef>org.wso2.orbit.org.codehaus.janino:janino</bundleDef>
+                                <bundleDef>org.wso2.orbit.net.sourceforge.jexcelapi:jxl</bundleDef>
+                                <bundleDef>org.wso2.orbit.jsr94:jsr94</bundleDef>
                             </bundles>
                             <importFeatures>
                                 <importFeatureDef>org.wso2.carbon.core.server:${carbon.kernel.version}</importFeatureDef>
