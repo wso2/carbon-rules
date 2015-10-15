@@ -52,6 +52,13 @@
             <groupId>org.wso2.orbit.org.drools</groupId>
             <artifactId>drools</artifactId>
         </dependency>
+
+        <!--Need to verify drools-jsr94 is required : currently required for test cases-->
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-jsr94</artifactId>
+            <version>6.3.0.Final</version>
+        </dependency>
     </dependencies>
 
     <build>

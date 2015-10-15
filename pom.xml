@@ -524,7 +524,7 @@
 
 
         <!-- Drools Versions -->
-        <orbit.version.drools>6.2.0.wso2v1</orbit.version.drools>
+        <orbit.version.drools>6.3.0.wso2v1</orbit.version.drools>
         <orbit.version.jsr94>1.1.0.wso2v1</orbit.version.jsr94>
         <orbit.version.jxl>2.6.12.wso2v1</orbit.version.jxl>
         <orbit.version.janino>2.5.15.wso2v1</orbit.version.janino>
