@@ -746,6 +746,6 @@
         <imp.pkg.version.javax.servlet.jsp.jstl>[1.2.1, 1.3.0)
         </imp.pkg.version.javax.servlet.jsp.jstl>
 
-        <project.scm.id>my-scm-server</project.scm.id>
+        <project.scm.id>wso2-scm-server</project.scm.id>
     </properties>
 </project>
