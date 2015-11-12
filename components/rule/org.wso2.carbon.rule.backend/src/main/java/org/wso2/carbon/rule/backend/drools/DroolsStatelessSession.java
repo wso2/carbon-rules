@@ -16,46 +16,56 @@
 
 package org.wso2.carbon.rule.backend.drools;
 
-import org.drools.command.Command;
-import org.drools.command.CommandFactory;
-import org.drools.runtime.ExecutionResults;
-import org.drools.runtime.StatelessKnowledgeSession;
+import org.drools.runtime.StatefulKnowledgeSession;
 import org.wso2.carbon.rule.kernel.backend.Session;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 public class DroolsStatelessSession implements Session {
 
-    private StatelessKnowledgeSession statelessKnowledgeSession;
+    /*
+        NOTE:
+        -------
+        we have to wrap stateful knowledge session due to drools has deprecated knowledgebase concept but still provide
+        knowledge base to legacy implementations. But some classes required (eg: CommandFactory) is no longer supported
+        we cannot use drools statelessknowledge sessions. Since the statelessknowledge session is developed wrapping
+        statefulKnowledge session,we can implement DroolsStatelessSession by wrapping StatefulKnowledgeSession until we
+        adapt new design with KIE
 
-    public DroolsStatelessSession(StatelessKnowledgeSession statelessKnowledgeSession) {
-        this.statelessKnowledgeSession = statelessKnowledgeSession;
+        private StatelessKnowledgeSession statelessKnowledgeSession;
+    */
+    private StatefulKnowledgeSession statefulKnowledgeSession;
+
+    public DroolsStatelessSession(StatefulKnowledgeSession knowledgeSession) {
+        this.statefulKnowledgeSession = knowledgeSession;
     }
 
     public List execute(List facts) {
 
-        final List<Command> cmds = new ArrayList<Command>();
         for (Object fact : facts) {
-            cmds.add(CommandFactory.newInsert(fact));
+            this.statefulKnowledgeSession.insert(fact);
         }
+        this.statefulKnowledgeSession.fireAllRules();
 
-        final ExecutionResults executionResults = this.statelessKnowledgeSession.execute(
-                CommandFactory.newBatchExecution(cmds));
-
-        final Collection<String> results = executionResults.getIdentifiers();
-        final List tobeReturn = new ArrayList();
-        for (String name : results) {
-            if (name != null) {
-                tobeReturn.add(executionResults.getValue(name));
+        Iterator results = this.statefulKnowledgeSession.getObjects().iterator();
+        List<Object> tobeReturn = new ArrayList<Object>();
+        while (results.hasNext()) {
+            Object result = results.next();
+            if (result != null) {
+                tobeReturn.add(result);
             }
         }
+
+        //Destroy/Dispose stateful knowledge session since we use it for stateless usage
+        destroy();
+
         return tobeReturn;
     }
 
     public void destroy() {
-
+        statefulKnowledgeSession.dispose();
     }
 
     

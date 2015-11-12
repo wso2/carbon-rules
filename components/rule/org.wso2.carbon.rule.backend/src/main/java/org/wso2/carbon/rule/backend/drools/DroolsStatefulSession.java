@@ -49,6 +49,6 @@ public class DroolsStatefulSession implements Session {
     }
 
     public void destroy() {
-
+        statefulKnowledgeSession.dispose();
     }
 }
