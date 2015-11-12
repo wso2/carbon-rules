@@ -23,6 +23,8 @@ import org.apache.axis2.AxisFault;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.soap.SOAPFactory;
 import org.apache.axiom.soap.SOAPEnvelope;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.wso2.carbon.rule.kernel.engine.RuleSession;
 import org.wso2.carbon.rule.kernel.engine.RuleEngine;
 import org.wso2.carbon.rule.common.util.Constants;
@@ -35,6 +37,8 @@ import org.wso2.carbon.rule.common.Output;
  * message receiver which does the proccessing. At the deployment time we set the message receiver to each and every operation.
  */
 public class RuleMessageReceiver extends AbstractInOutMessageReceiver {
+
+    private static Log log = LogFactory.getLog(RuleMessageReceiver.class);
 
     private RuleEngine ruleEngine;
     private Input input;
@@ -82,10 +86,36 @@ public class RuleMessageReceiver extends AbstractInOutMessageReceiver {
         RuleSession ruleSession =
                 (RuleSession) serviceContext.getProperty(Constants.RULE_SESSION_OBJECT);
         if (ruleSession == null){
-            ruleSession = this.ruleEngine.createSession(Constants.RULE_STATEFUL_SESSION);
 
-            // put a configuration to invalidate the session or keep the session countinued
-            serviceContext.setProperty(Constants.RULE_SESSION_OBJECT, ruleSession);
+            String serviceScope = inMessageContext.getAxisService().getScope();
+
+            if (serviceScope.equals(org.apache.axis2.Constants.SCOPE_TRANSPORT_SESSION) ||
+                                                        serviceScope.equals(org.apache.axis2.Constants.SCOPE_SOAP_SESSION)) {
+                //Rule service is stateful service
+
+                //create new stateful session and set knowledge session in serviceContext
+                ruleSession = this.ruleEngine.createSession(Constants.RULE_STATEFUL_SESSION);
+                if (log.isDebugEnabled()) {
+                    log.debug("New stateful knowledge session created");
+                }
+                // put a configuration to invalidate the session or keep the session continued
+                serviceContext.setProperty(Constants.RULE_SESSION_OBJECT, ruleSession);
+
+                //set rule session lifecycle to service context
+                if (serviceContext.getProperty(ServiceContext.SERVICE_OBJECT) == null) {
+                    RuleSessionLifecycle ruleSessionLifecycle = new RuleSessionLifecycle();
+                    serviceContext.setProperty(ServiceContext.SERVICE_OBJECT, ruleSessionLifecycle);
+                    if (log.isDebugEnabled()) {
+                        log.debug("Set RuleSessionLifecycle to ServiceContext.SERVICE_OBJECT property");
+                    }
+                }
+            } else {
+                //Rule service is stateless service
+                ruleSession = this.ruleEngine.createSession(Constants.RULE_STATELESS_SESSION);
+                if (log.isDebugEnabled()) {
+                    log.debug("New stateless knowledge session created");
+                }
+            }
         }
 
         return ruleSession;

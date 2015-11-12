@@ -92,8 +92,15 @@ public class DroolsBackendRuntime implements RuleBackendRuntime {
                 log.debug("Using stateless rule session");
             }
             // create stateless rule session
-            StatelessKnowledgeSession ruleSession =
-                    knowledgeBase.newStatelessKnowledgeSession();
+            /**
+                Due to drools have deprecated knowledgeBase usage, some classes have already unsupported,
+                Until BRS adapt new concept we create stateful knowledge session and use it in stateless manner
+                (dispose at the end of usage) therefore here we create stateful knowledge session from knowledgebase
+
+            StatelessKnowledgeSession ruleSession = knowledgeBase.newStatelessKnowledgeSession();
+            */
+
+            StatefulKnowledgeSession ruleSession = knowledgeBase.newStatefulKnowledgeSession();
 
             if (ruleSession == null) {
                 throw new RuleRuntimeException("The created stateless rule session is null");

@@ -76,6 +76,14 @@ public class RuleSession {
     }
 
     /**
+     * This method dispose the wrapped knowledge session
+     * @throws RuleRuntimeException - if error occurred when disposing underlying drools knowledge session
+     */
+    public void destroy() throws RuleRuntimeException {
+        this.session.destroy();
+    }
+
+    /**
      * return the list of facts corresponing to the given OMElement.
      * @param inputElement  - input OMElement which is to be used to get the facts.
      * @param fact  - fact configuration object
