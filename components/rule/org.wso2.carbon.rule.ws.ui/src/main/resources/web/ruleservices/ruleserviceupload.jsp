@@ -73,7 +73,7 @@
                                    value=" <fmt:message key="upload"/> "
                                    onclick="validate();"/>
                             <input type="button" class="button"
-                                   onclick="location.href = '../service-mgt/index.jsp'"
+                                   onclick="location.href = '../service-mgt/index.jsp?region=region1&item=services_list_menu'"
                                    value=" <fmt:message key="cancel"/> "/>
                         </td>
                     </tr>

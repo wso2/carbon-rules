@@ -44,5 +44,5 @@
 %>
 
 <script type="text/javascript">
-    location.href = "../service-mgt/index.jsp";
+    location.href = "../service-mgt/index.jsp?region=region1&item=services_list_menu";
 </script>
