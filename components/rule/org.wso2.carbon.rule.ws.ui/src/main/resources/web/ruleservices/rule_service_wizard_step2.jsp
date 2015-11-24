@@ -179,8 +179,8 @@
 <script type="text/javascript">
     function validateRuleFileUpload() {
 
-    //set the hidden filed value to the new code created
-    document.getElementById("ruleSourceInlined").value = editAreaLoader.getValue("ruleSourceInlined");
+        //set the hidden filed value to the new code created
+        document.getElementById("ruleSourceInlined").value = editAreaLoader.getValue("ruleSourceInlined");
         var fileName = document.ruleScriptUpload.ruleFilename.value;
         if (fileName == '') {
             CARBON.showErrorDialog('<fmt:message key="select.rule.script"/>');
@@ -217,6 +217,26 @@
                 CARBON.showErrorDialog('<fmt:message key="upload.script.empty"/>');
                 return false;
                 //TODO add proper message
+
+            } else if (document.getElementById('ruleScriptTypeUpload').checked) {
+                var fileCount;
+                for (fileCount = 0; fileCount < i; fileCount++) {
+                    //Read each hidden inputs which contain uploaded rule script details of form "dataForm",
+                    //and validate them with Rule Type
+                    var fileInputElement = document.getElementById("ruleScriptName" + fileCount);
+                    if (fileInputElement == null) {
+                        break;
+                    } else {
+                        if ( ((fileInputElement.value.lastIndexOf(".xls") > 0) &&
+                              (document.getElementById('ruleResouceTypeID').value != "dtable")) ||
+                             ((fileInputElement.value.lastIndexOf(".drl") > 0) &&
+                              (document.getElementById('ruleResouceTypeID').value != "regular")) ) {
+                            //If the uploaded scripts don't match with the RuleType
+                            CARBON.showErrorDialog('<fmt:message key="select.valid.rule.ruleType"/>');
+                            return false;
+                        }
+                    }
+                }
 
             }
 
