@@ -56,12 +56,30 @@ public class DroolsBackendRuntime implements RuleBackendRuntime {
             InputStream ruleInputStream = RuleSetLoader.getRuleSetAsStream(rule, classLoader);
 
             if (rule.getResourceType().equals(Constants.RULE_RESOURCE_TYPE_REGULAR)) {
-                this.knowledgeBuilder.add(ResourceFactory.newInputStreamResource(ruleInputStream), ResourceType.DRL);
+
+                //check the file type before adding it to knowledge builder for "file" source type
+                if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_FILE) && (rule.getValue().lastIndexOf(".drl") < 0) ) {
+                    throw new RuleConfigurationException(
+                            "Error in rule service configuration : Select \"dtable\" as Resource Type for decision tables "
+                                                                        + "or attached file is not supported by rule engine");
+                } else {
+                    this.knowledgeBuilder.add(ResourceFactory.newInputStreamResource(ruleInputStream), ResourceType.DRL);
+                }
+
             } else if (rule.getResourceType().equals(Constants.RULE_RESOURCE_TYPE_DTABLE)) {
-                DecisionTableConfiguration dtconf = KnowledgeBuilderFactory.newDecisionTableConfiguration();
-                dtconf.setInputType(DecisionTableInputType.XLS);
-                this.knowledgeBuilder.add(ResourceFactory.newInputStreamResource(ruleInputStream),
-                        ResourceType.DTABLE, dtconf);
+
+                //check the file type before adding it to knowledge builder for "file" source type
+                if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_FILE) && rule.getValue().lastIndexOf(".xls") < 0) {
+                    throw new RuleConfigurationException(
+                            "Error in rule service configuration : Select \"regular\" as Resource Type for regular rules "
+                                                                        + "or attached file is not supported by rule engine");
+                } else {
+                    DecisionTableConfiguration dtconf = KnowledgeBuilderFactory.newDecisionTableConfiguration();
+                    dtconf.setInputType(DecisionTableInputType.XLS);
+                    this.knowledgeBuilder.add(ResourceFactory.newInputStreamResource(ruleInputStream),
+                                              ResourceType.DTABLE, dtconf);
+                }
+
             }
 
             if (this.knowledgeBuilder.hasErrors()) {
