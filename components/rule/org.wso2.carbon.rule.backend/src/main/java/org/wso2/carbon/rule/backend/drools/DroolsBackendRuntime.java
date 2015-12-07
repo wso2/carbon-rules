@@ -69,13 +69,24 @@ public class DroolsBackendRuntime implements RuleBackendRuntime {
             } else if (rule.getResourceType().equals(Constants.RULE_RESOURCE_TYPE_DTABLE)) {
 
                 //check the file type before adding it to knowledge builder for "file" source type
-                if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_FILE) && rule.getValue().lastIndexOf(".xls") < 0) {
+                if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_FILE) &&
+                                                                            rule.getValue().lastIndexOf(".xls") < 0 &&
+                                                                            rule.getValue().lastIndexOf(".csv") < 0) {
                     throw new RuleConfigurationException(
                             "Error in rule service configuration : Select \"regular\" as Resource Type for regular rules "
                                                                         + "or attached file is not supported by rule engine");
                 } else {
                     DecisionTableConfiguration dtconf = KnowledgeBuilderFactory.newDecisionTableConfiguration();
-                    dtconf.setInputType(DecisionTableInputType.XLS);
+
+                    //check whether the decision tables is base on .xsl file of .csv format (inline input or .csv file input)
+                    if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_INLINE) ||
+                                                                    rule.getValue().lastIndexOf(".csv") > 0) {
+                        //decision table in .xls format
+                        dtconf.setInputType(DecisionTableInputType.CSV);
+                    } else {
+                        //decision table in .xls format
+                        dtconf.setInputType(DecisionTableInputType.XLS);
+                    }
                     this.knowledgeBuilder.add(ResourceFactory.newInputStreamResource(ruleInputStream),
                                               ResourceType.DTABLE, dtconf);
                 }
