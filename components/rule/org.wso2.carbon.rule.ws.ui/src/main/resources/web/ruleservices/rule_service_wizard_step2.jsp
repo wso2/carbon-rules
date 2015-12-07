@@ -184,7 +184,7 @@
         var fileName = document.ruleScriptUpload.ruleFilename.value;
         if (fileName == '') {
             CARBON.showErrorDialog('<fmt:message key="select.rule.script"/>');
-        } else if (fileName.lastIndexOf(".drl") == -1 && fileName.lastIndexOf(".xls") == -1) {
+        } else if (fileName.lastIndexOf(".drl") == -1 && fileName.lastIndexOf(".xls") == -1 && fileName.lastIndexOf(".csv") == -1) {
             CARBON.showErrorDialog('<fmt:message key="select.valid.rule.script"/>');
         } else {
             document.ruleScriptUpload.submit();
@@ -228,6 +228,8 @@
                         break;
                     } else {
                         if ( ((fileInputElement.value.lastIndexOf(".xls") > 0) &&
+                              (document.getElementById('ruleResouceTypeID').value != "dtable")) ||
+                             ((fileInputElement.value.lastIndexOf(".csv") > 0) &&
                               (document.getElementById('ruleResouceTypeID').value != "dtable")) ||
                              ((fileInputElement.value.lastIndexOf(".drl") > 0) &&
                               (document.getElementById('ruleResouceTypeID').value != "regular")) ) {

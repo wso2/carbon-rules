@@ -279,11 +279,17 @@ public class RuleServiceArchiveAdminHandler extends AbstractRuleServiceAdminHand
                     conf.getAbsolutePath(), null, ".drl");
             File[] xls=  FileManipulator.getMatchingFiles(
                     conf.getAbsolutePath(), null, ".xls");
+            File[] csvs=  FileManipulator.getMatchingFiles(
+                    conf.getAbsolutePath(), null, ".csv");
             for (File file : drls) {
                 ruleFiles.add(file.getName());
 
             }
             for (File file : xls) {
+                ruleFiles.add(file.getName());
+
+            }
+            for (File file : csvs) {
                 ruleFiles.add(file.getName());
 
             }
