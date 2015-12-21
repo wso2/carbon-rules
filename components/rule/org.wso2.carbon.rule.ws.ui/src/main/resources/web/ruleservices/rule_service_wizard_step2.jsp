@@ -218,7 +218,9 @@
                 return false;
                 //TODO add proper message
 
-            } else if (document.getElementById('ruleScriptTypeUpload').checked) {
+            } else if (document.getElementById('ruleScriptTypeUpload').checked ||
+                                            document.getElementById('ruleScriptTypeurl').checked ||
+                                            document.getElementById('ruleScriptTypekey').checked) {
                 var fileCount;
                 for (fileCount = 0; fileCount < i; fileCount++) {
                     //Read each hidden inputs which contain uploaded rule script details of form "dataForm",
