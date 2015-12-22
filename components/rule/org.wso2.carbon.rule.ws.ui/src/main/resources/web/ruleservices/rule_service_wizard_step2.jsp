@@ -226,8 +226,7 @@
                     //Read each hidden inputs which contain uploaded rule script details of form "dataForm",
                     //and validate them with Rule Type
                     var fileInputElement = document.getElementById("ruleScriptName" + fileCount);
-                    if (fileInputElement == null) {
-                    } else {
+                    if (fileInputElement != null) {
                         if ( ((fileInputElement.value.lastIndexOf(".xls") > 0) &&
                               (document.getElementById('ruleResouceTypeID').value != "dtable")) ||
                              ((fileInputElement.value.lastIndexOf(".csv") > 0) &&
