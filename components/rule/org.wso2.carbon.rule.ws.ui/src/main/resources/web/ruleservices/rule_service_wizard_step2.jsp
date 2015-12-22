@@ -227,7 +227,6 @@
                     //and validate them with Rule Type
                     var fileInputElement = document.getElementById("ruleScriptName" + fileCount);
                     if (fileInputElement == null) {
-                        break;
                     } else {
                         if ( ((fileInputElement.value.lastIndexOf(".xls") > 0) &&
                               (document.getElementById('ruleResouceTypeID').value != "dtable")) ||
