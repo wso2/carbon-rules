@@ -109,5 +109,10 @@ public interface Constants {
     public final static String CONFIGURATION_REGISTRY_PREFIX = "/_system/config/";
     public final static String GOVERNANCE_REGISTRY_PREFIX = "/_system/governance/";
 
+    public static final String SYNAPSE_NAMESPACE = "http://ws.apache.org/ns/synapse";
+    public final static String RULE_SESSION = "session";
+    public static final String RULE_STATELESS_SESSION_TYPE = "stateless";
+    public static final QName RULE_SESSION_TYPE_QNAME = new QName("type");
+
 
 }

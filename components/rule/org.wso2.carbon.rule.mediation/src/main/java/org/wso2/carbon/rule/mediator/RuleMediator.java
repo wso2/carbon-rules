@@ -47,18 +47,22 @@ public class RuleMediator extends AbstractMediator {
 
     private Output output;
 
+    private OMElement session;
+
     public RuleMediator(RuleEngine ruleEngine,
                         OMElement ruleOMElement,
                         Source source,
                         Target target,
                         Input input,
-                        Output output) {
+                        Output output,
+                        OMElement session) {
         this.ruleEngine = ruleEngine;
         this.ruleOMElement = ruleOMElement;
         this.source = source;
         this.target = target;
         this.input = input;
         this.output = output;
+        this.session = session;
     }
 
     public boolean mediate(MessageContext messageContext) {
@@ -73,7 +77,14 @@ public class RuleMediator extends AbstractMediator {
         }
 
         try {
-            RuleSession ruleSession = ruleEngine.createSession(Constants.RULE_STATEFUL_SESSION);
+            RuleSession ruleSession;
+            if (this.session == null || Constants.RULE_STATELESS_SESSION_TYPE.equals(
+                    this.session.getAttributeValue(Constants.RULE_SESSION_TYPE_QNAME))) {
+                ruleSession = ruleEngine.createSession(Constants.RULE_STATELESS_SESSION);
+            } else {
+                ruleSession = ruleEngine.createSession(Constants.RULE_STATEFUL_SESSION);
+            }
+
             OMNode resultOMNode = ruleSession.execute(inputOMElement, this.input, this.output);
 
             if ((this.target.getResultXpath() != null) && (!this.target.getResultXpath().equals(""))) {
