@@ -53,6 +53,11 @@ public class RuleMediatorConfigHelper {
         OMElement outputOMElement = ruleMediatorElement.getFirstChildWithName(
                 new QName(Constants.RULE_CONF_NAMESPACE, Constants.RULE_CONF_ELE_OUTPUT));
         ruleMediatorConfig.setOutput(OutputHelper.getOutput(outputOMElement));
+
+        OMElement sessionOMElement = ruleMediatorElement.getFirstChildWithName(
+                new QName(Constants.SYNAPSE_NAMESPACE, Constants.RULE_SESSION));
+        ruleMediatorConfig.setSession(sessionOMElement);
+
         return ruleMediatorConfig;
     }
 }

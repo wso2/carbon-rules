@@ -46,7 +46,8 @@ public class RuleMediatorFactory extends AbstractMediatorFactory {
                     ruleMediatorConfig.getSource(),
                     ruleMediatorConfig.getTarget(),
                     ruleMediatorConfig.getInput(),
-                    ruleMediatorConfig.getOutput());
+                    ruleMediatorConfig.getOutput(),
+                    ruleMediatorConfig.getSession());
         } catch (RuleConfigurationException e) {
             handleException("Can not create the rule engine ", e);
         }

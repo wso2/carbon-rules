@@ -32,6 +32,7 @@ public class RuleMediatorConfig {
     private RuleSet ruleSet;
     private Input input;
     private Output output;
+    private OMElement session;
 
     public RuleMediatorConfig() {
         this.source = new Source();
@@ -39,6 +40,7 @@ public class RuleMediatorConfig {
         this.ruleSet = new RuleSet();
         this.input = new Input();
         this.output = new Output();
+        this.session = this.getSession();
     }
 
     public OMElement toOM(){
@@ -118,5 +120,13 @@ public class RuleMediatorConfig {
 
     public void setOutput(Output output) {
         this.output = output;
+    }
+
+    public OMElement getSession() {
+        return session;
+    }
+
+    public void setSession(OMElement session) {
+        this.session = session;
     }
 }
