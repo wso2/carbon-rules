@@ -101,6 +101,8 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
 		<configuration>
 			<excludes>
+				<!--Skip the dependency class irrelavant to the code coverage calculation. 
+				This contain methods which exceed the maximum method size limit in jacoco agent-->
 				<exclude>org/drools/compiler/lang/DRL6Lexer</exclude>
 			</excludes>
 		</configuration>
