@@ -568,7 +568,7 @@
         <orbit.version.jsr94>1.1.0.wso2v1</orbit.version.jsr94>
         <orbit.version.jxl>2.6.12.wso2v1</orbit.version.jxl>
         <orbit.version.janino>2.5.15.wso2v1</orbit.version.janino>
-        <orbit.version.joda-time>2.8.2.wso2v1</orbit.version.joda-time>
+        <orbit.version.joda-time>2.9.4.wso2v1</orbit.version.joda-time>
         <version.mvel>2.2.4.Final</version.mvel>
 
         <!-- Carbon Kernel Versions -->
