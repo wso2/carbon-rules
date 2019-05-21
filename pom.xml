@@ -4,7 +4,7 @@
     <groupId>org.wso2.carbon.rules</groupId>
     <artifactId>carbon-rule</artifactId>
     <packaging>pom</packaging>
-    <version>4.4.10-SNAPSHOT</version>
+    <version>4.4.10</version>
     <name>WSO2 Carbon - Rule Aggregator Pom</name>
     <url>http://wso2.org</url>
 
@@ -428,7 +428,7 @@
         <url>https://github.com/wso2/carbon-rules.git</url>
         <developerConnection>scm:git:https://github.com/wso2/carbon-rules.git</developerConnection>
         <connection>scm:git:https://github.com/wso2/carbon-rules.git</connection>
-        <tag>HEAD</tag>
+        <tag>v4.4.10</tag>
     </scm>
     <!--|
         | List of repositories for all the various dependencies,
@@ -558,7 +558,7 @@
     <properties>
 
         <!-- Carbon Rules Version -->
-        <carbon.rules.version>4.4.10-SNAPSHOT</carbon.rules.version>
+        <carbon.rules.version>4.4.10</carbon.rules.version>
         <carbon.rules.imp.pkg.version>[4.4.0,4.5.0)</carbon.rules.imp.pkg.version>
         <carbon.rules.exp.pkg.version>4.4.0</carbon.rules.exp.pkg.version>
 
