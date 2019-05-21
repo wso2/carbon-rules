@@ -146,9 +146,6 @@
                                 <bundleDef>org.wso2.orbit.net.sourceforge.jexcelapi:jxl</bundleDef>
                                 <bundleDef>org.wso2.orbit.jsr94:jsr94</bundleDef>
                             </bundles>
-                            <importFeatures>
-                                <importFeatureDef>org.wso2.carbon.core.server:${carbon.kernel.version}</importFeatureDef>
-                            </importFeatures>
                             <includedFeatures>
                                 <includedFeatureDef>
                                     org.wso2.carbon.rules:org.wso2.carbon.rule.mediation.common.feature
