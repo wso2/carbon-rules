@@ -75,8 +75,8 @@
             <artifactId>janino</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.wso2.orbit.net.sourceforge.jexcelapi</groupId>
-            <artifactId>jxl</artifactId>
+            <groupId>org.wso2.orbit.org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
         </dependency>
         <dependency>
             <groupId>org.wso2.orbit.jsr94</groupId>
@@ -143,7 +143,7 @@
                                 <bundleDef>antlr.wso2:antlr</bundleDef>
                                 <bundleDef>org.antlr.wso2:antlr-runtime</bundleDef>
                                 <bundleDef>org.wso2.orbit.org.codehaus.janino:janino</bundleDef>
-                                <bundleDef>org.wso2.orbit.net.sourceforge.jexcelapi:jxl</bundleDef>
+                                <bundleDef>org.wso2.orbit.org.apache.poi:poi:${poi.orbit.version}</bundleDef>
                                 <bundleDef>org.wso2.orbit.jsr94:jsr94</bundleDef>
                             </bundles>
                             <importFeatures>
