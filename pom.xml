@@ -190,9 +190,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.wso2.orbit.net.sourceforge.jexcelapi</groupId>
-                <artifactId>jxl</artifactId>
-                <version>${orbit.version.jxl}</version>
+                <groupId>org.wso2.orbit.org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.orbit.version}</version>
             </dependency>
 
             <dependency>
@@ -566,7 +566,7 @@
         <!-- Drools Versions -->
         <orbit.version.drools>6.3.0.wso2v1</orbit.version.drools>
         <orbit.version.jsr94>1.1.0.wso2v1</orbit.version.jsr94>
-        <orbit.version.jxl>2.6.12.wso2v1</orbit.version.jxl>
+        <poi.orbit.version>3.17.0.wso2v1</poi.orbit.version>
         <orbit.version.janino>2.5.15.wso2v1</orbit.version.janino>
         <orbit.version.joda-time>2.9.4.wso2v1</orbit.version.joda-time>
         <version.mvel>2.2.4.Final</version.mvel>
