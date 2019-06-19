@@ -584,20 +584,20 @@
 
         <!-- Carbon Kernel Versions -->
         <carbon.kernel.version>4.5.0-m1</carbon.kernel.version>
-        <carbon.kernel.imp.pkg.version>[4.5.0, 4.5.0)</carbon.kernel.imp.pkg.version>
+        <carbon.kernel.imp.pkg.version>[4.5.0, 4.6.0)</carbon.kernel.imp.pkg.version>
         <carbon.kernel.registry.imp.pkg.version>[1.0.1, 2.0.0)</carbon.kernel.registry.imp.pkg.version>
 
         <!-- Carbon commons version -->
-        <carbon.commons.version>4.4.8</carbon.commons.version>
-        <carbon.commons.imp.pkg.version>[4.4.0, 4.5.0)</carbon.commons.imp.pkg.version>
+        <carbon.commons.version>4.7.0</carbon.commons.version>
+        <carbon.commons.imp.pkg.version>[4.7.0, 4.8.0)</carbon.commons.imp.pkg.version>
 
         <!-- Carbon Identity version -->
         <!--<carbon.identity.version>5.0.3</carbon.identity.version>-->
         <!--<carbon.identity.imp.pkg.version>[5.0.0, 6.0.0)</carbon.identity.imp.pkg.version>-->
         
         <!-- Carbon Deployment version -->
-        <carbon.deployment.version>4.6.0</carbon.deployment.version>
-        <carbon.deployment.imp.pkg.version>[4.6.0, 5.0.0)</carbon.deployment.imp.pkg.version>
+        <carbon.deployment.version>4.9.0</carbon.deployment.version>
+        <carbon.deployment.imp.pkg.version>[4.9.0, 5.0.0)</carbon.deployment.imp.pkg.version>
 
         <!-- Carbon registry version -->
         <!--<carbon.registry.version>4.4.5</carbon.registry.version>-->
@@ -605,15 +605,15 @@
 
         <!-- Axiom Version -->
         <!--<axiom.wso2.version>1.2.11.wso2v6</axiom.wso2.version>-->
-        <version.axiom>1.2.11-wso2v10</version.axiom>
-        <axiom.osgi.version.range>[1.2.11.wso2v10, 1.3.0)</axiom.osgi.version.range>
-        <orbit.version.axiom>1.2.11.wso2v10</orbit.version.axiom>
+        <version.axiom>1.2.11-wso2v16</version.axiom>
+        <axiom.osgi.version.range>[1.2.11-wso2v16, 1.3.0)</axiom.osgi.version.range>
+        <orbit.version.axiom>1.2.11-wso2v16</orbit.version.axiom>
 
 
         <!-- Axis2 Version -->
-        <orbit.version.axis2>1.6.1.wso2v37</orbit.version.axis2>
+        <orbit.version.axis2>1.6.1-wso2v37</orbit.version.axis2>
         <!--axis2-transports.version>1.1.0-wso2v11</axis2-transports.version-->
-        <axis2.osgi.version.range>[1.6.1.wso2v37, 1.7.0)</axis2.osgi.version.range>
+        <axis2.osgi.version.range>[1.6.1-wso2v37, 1.7.0)</axis2.osgi.version.range>
 
         <neethi.osgi.version>2.0.4.wso2v4</neethi.osgi.version>
         <neethi.osgi.version.range>[2.0.4.wso2v4, 3.1.0)</neethi.osgi.version.range>
