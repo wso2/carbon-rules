@@ -91,7 +91,9 @@
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Export-Package>
                             org.wso2.carbon.rule.backend.*,
+                            !org.wso2.carbon.rule.backend.internal,
                         </Export-Package>
+                        <Private-Package>org.wso2.carbon.rule.backend.internal</Private-Package>
                         <Import-Package>
                             !javax.xml.namespace,
                             javax.xml.namespace; version=0.0.0,

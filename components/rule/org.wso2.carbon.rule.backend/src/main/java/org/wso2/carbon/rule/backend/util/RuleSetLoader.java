@@ -21,7 +21,7 @@ package org.wso2.carbon.rule.backend.util;
 
 import org.wso2.carbon.context.CarbonContext;
 import org.wso2.carbon.registry.core.exceptions.RegistryException;
-import org.wso2.carbon.rule.backend.util.ds.RuleServiceValueHolder;
+import org.wso2.carbon.rule.backend.internal.RuleServiceValueHolder;
 import org.wso2.carbon.rule.common.Rule;
 import org.wso2.carbon.rule.common.exception.RuleConfigurationException;
 import org.wso2.carbon.rule.common.util.Constants;
