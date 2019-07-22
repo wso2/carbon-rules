@@ -46,9 +46,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.logging</artifactId>
-                <version>${carbon.kernel.version}</version>
+                <groupId>org.ops4j.pax.logging</groupId>
+                <artifactId>pax-logging-api</artifactId>
+                <version>${pax.logging.api.version}</version>
             </dependency>
 
             <dependency>
@@ -249,11 +249,6 @@
                 <version>${version.jaxen}</version>
             </dependency>
 
-            <dependency>
-                <artifactId>log4j</artifactId>
-                <groupId>log4j</groupId>
-                <version>${version.log4j}</version>
-            </dependency>
 
             <dependency>
                 <artifactId>commons-fileupload</artifactId>
@@ -610,7 +605,6 @@
         <!-- Commons Version -->
         <commons-httpclient.version>3.0.1</commons-httpclient.version>
         <commons-pool.version>1.5.0.wso2v1</commons-pool.version>
-        <commons-logging.version>1.1.1</commons-logging.version>
         <orbit.version.commons.lang>2.6.0.wso2v1</orbit.version.commons.lang>
         <orbit.version.commons.httpclient>3.1.0.wso2v2</orbit.version.commons.httpclient>
         <commons-collections.version>3.2.0.wso2v1</commons-collections.version>
@@ -739,7 +733,6 @@
         <!--For BRS-->
         <orbit.version.org.apache.xmlbeans.wso2.xmlbeans>2.3.0.wso2v1
         </orbit.version.org.apache.xmlbeans.wso2.xmlbeans>
-        <version.log4j>1.2.17</version.log4j>
         <version.xmlunit>1.1</version.xmlunit>
         <version.jaxen>1.1.1</version.jaxen>
         <geronimo.transaction.version>2.0.1.wso2v1</geronimo.transaction.version>
@@ -772,5 +765,7 @@
         <project.scm.id>wso2-scm-server</project.scm.id>
         <apache.felix.scr.ds.annotations.version>1.2.4</apache.felix.scr.ds.annotations.version>
         <maven.scr.plugin.version>1.26.0</maven.scr.plugin.version>
+        <pax.logging.api.version>1.10.1</pax.logging.api.version>
+        <import.package.version.commons.logging>[1.2.0,2.0.0)</import.package.version.commons.logging>
     </properties>
 </project>
