@@ -13,7 +13,7 @@
     <parent>
         <groupId>org.wso2</groupId>
         <artifactId>wso2</artifactId>
-        <version>1</version>
+        <version>1.2</version>
     </parent>
 
     <modules>
@@ -314,15 +314,25 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- disable the doclint since jenkins parameter not supported to disable-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.1</version>
+                <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
-                    <encoding>UTF-8</encoding>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <!--This parameter disables doclint-->
+                            <doclint>none</doclint>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
         <pluginManagement>
@@ -552,12 +562,12 @@
         <version.mvel>2.2.4.Final</version.mvel>
 
         <!-- Carbon Kernel Versions -->
-        <carbon.kernel.version>4.5.0-m1</carbon.kernel.version>
+        <carbon.kernel.version>4.5.0-m3</carbon.kernel.version>
         <carbon.kernel.imp.pkg.version>[4.5.0, 4.6.0)</carbon.kernel.imp.pkg.version>
         <carbon.kernel.registry.imp.pkg.version>[1.0.1, 2.0.0)</carbon.kernel.registry.imp.pkg.version>
 
         <!-- Carbon commons version -->
-        <carbon.commons.version>4.7.1</carbon.commons.version>
+        <carbon.commons.version>4.7.2</carbon.commons.version>
         <carbon.commons.imp.pkg.version>[4.7.0, 4.8.0)</carbon.commons.imp.pkg.version>
 
         <!-- Carbon Identity version -->
@@ -565,7 +575,7 @@
         <!--<carbon.identity.imp.pkg.version>[5.0.0, 6.0.0)</carbon.identity.imp.pkg.version>-->
         
         <!-- Carbon Deployment version -->
-        <carbon.deployment.version>4.9.4</carbon.deployment.version>
+        <carbon.deployment.version>4.9.5</carbon.deployment.version>
         <carbon.deployment.imp.pkg.version>[4.9.0, 5.0.0)</carbon.deployment.imp.pkg.version>
 
         <!-- Carbon registry version -->
