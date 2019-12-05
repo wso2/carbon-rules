@@ -20,13 +20,13 @@
     <parent>
         <groupId>org.wso2.carbon.rules</groupId>
         <artifactId>rule-mediation</artifactId>
-        <version>4.4.7-SNAPSHOT</version>
+        <version>4.5.7-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>org.wso2.carbon.rule.mediation.server.feature</artifactId>
-    <version>4.4.7-SNAPSHOT</version>
+    <version>4.5.7-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>WSO2 Carbon - Rule Mediation Server Feature</name>
     <url>http://wso2.org</url>
@@ -75,8 +75,8 @@
             <artifactId>janino</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.wso2.orbit.net.sourceforge.jexcelapi</groupId>
-            <artifactId>jxl</artifactId>
+            <groupId>org.wso2.orbit.org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
         </dependency>
         <dependency>
             <groupId>org.wso2.orbit.jsr94</groupId>
@@ -143,12 +143,9 @@
                                 <bundleDef>antlr.wso2:antlr</bundleDef>
                                 <bundleDef>org.antlr.wso2:antlr-runtime</bundleDef>
                                 <bundleDef>org.wso2.orbit.org.codehaus.janino:janino</bundleDef>
-                                <bundleDef>org.wso2.orbit.net.sourceforge.jexcelapi:jxl</bundleDef>
+                                <bundleDef>org.wso2.orbit.org.apache.poi:poi:${poi.orbit.version}</bundleDef>
                                 <bundleDef>org.wso2.orbit.jsr94:jsr94</bundleDef>
                             </bundles>
-                            <importFeatures>
-                                <importFeatureDef>org.wso2.carbon.core.server:${carbon.kernel.version}</importFeatureDef>
-                            </importFeatures>
                             <includedFeatures>
                                 <includedFeatureDef>
                                     org.wso2.carbon.rules:org.wso2.carbon.rule.mediation.common.feature

@@ -1,17 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2.carbon.rules</groupId>
     <artifactId>carbon-rule</artifactId>
     <packaging>pom</packaging>
-    <version>4.4.7-SNAPSHOT</version>
+    <version>4.5.7-SNAPSHOT</version>
     <name>WSO2 Carbon - Rule Aggregator Pom</name>
     <url>http://wso2.org</url>
 
     <parent>
         <groupId>org.wso2</groupId>
         <artifactId>wso2</artifactId>
-        <version>1</version>
+        <version>1.2</version>
     </parent>
 
     <modules>
@@ -44,9 +46,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.logging</artifactId>
-                <version>${carbon.kernel.version}</version>
+                <groupId>org.ops4j.pax.logging</groupId>
+                <artifactId>pax-logging-api</artifactId>
+                <version>${pax.logging.api.version}</version>
             </dependency>
 
             <dependency>
@@ -190,9 +192,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.wso2.orbit.net.sourceforge.jexcelapi</groupId>
-                <artifactId>jxl</artifactId>
-                <version>${orbit.version.jxl}</version>
+                <groupId>org.wso2.orbit.org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.orbit.version}</version>
             </dependency>
 
             <dependency>
@@ -247,11 +249,6 @@
                 <version>${version.jaxen}</version>
             </dependency>
 
-            <dependency>
-                <artifactId>log4j</artifactId>
-                <groupId>log4j</groupId>
-                <version>${version.log4j}</version>
-            </dependency>
 
             <dependency>
                 <artifactId>commons-fileupload</artifactId>
@@ -288,7 +285,11 @@
                 <artifactId>antlr-runtime</artifactId>
                 <version>${antlr.wso2.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
+                <version>${apache.felix.scr.ds.annotations.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -313,48 +314,37 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- disable the doclint since jenkins parameter not supported to disable-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.1</version>
+                <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
-                    <encoding>UTF-8</encoding>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <!--This parameter disables doclint-->
+                            <doclint>none</doclint>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <configuration>
-                        <preparationGoals>clean install</preparationGoals>
-                        <autoVersionSubmodules>true</autoVersionSubmodules>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-scr-plugin</artifactId>
-                    <version>1.7.2</version>
-                    <executions>
-                        <execution>
-                            <id>generate-scr-scrdescriptor</id>
-                            <goals>
-                                <goal>scr</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
-                    <version>2.3.5</version>
+                    <version>3.2.0</version>
                     <extensions>true</extensions>
                     <configuration>
                         <obrRepository>NONE</obrRepository>
@@ -558,35 +548,37 @@
     <properties>
 
         <!-- Carbon Rules Version -->
-        <carbon.rules.version>4.4.7-SNAPSHOT</carbon.rules.version>
-        <carbon.rules.imp.pkg.version>[4.4.0,4.5.0)</carbon.rules.imp.pkg.version>
-        <carbon.rules.exp.pkg.version>4.4.0</carbon.rules.exp.pkg.version>
+        <carbon.rules.version>4.5.7-SNAPSHOT</carbon.rules.version>
+        <carbon.rules.imp.pkg.version>[4.5.0,4.6.0)</carbon.rules.imp.pkg.version>
+        <carbon.rules.exp.pkg.version>4.5.0</carbon.rules.exp.pkg.version>
 
 
         <!-- Drools Versions -->
         <orbit.version.drools>6.3.0.wso2v1</orbit.version.drools>
         <orbit.version.jsr94>1.1.0.wso2v1</orbit.version.jsr94>
-        <orbit.version.jxl>2.6.12.wso2v1</orbit.version.jxl>
+        <poi.orbit.version>3.17.0.wso2v1</poi.orbit.version>
         <orbit.version.janino>2.5.15.wso2v1</orbit.version.janino>
-        <orbit.version.joda-time>2.8.2.wso2v1</orbit.version.joda-time>
+        <orbit.version.joda-time>2.9.4.wso2v1</orbit.version.joda-time>
         <version.mvel>2.2.4.Final</version.mvel>
 
         <!-- Carbon Kernel Versions -->
-        <carbon.kernel.version>4.4.3</carbon.kernel.version>
-        <carbon.kernel.imp.pkg.version>[4.4.0, 4.7.0)</carbon.kernel.imp.pkg.version>
+        <carbon.kernel.version>4.5.3</carbon.kernel.version>
+        <carbon.kernel.feature.version>${carbon.kernel.version}</carbon.kernel.feature.version>
+        <carbon.kernel.imp.pkg.version>[4.5.0, 4.7.0)</carbon.kernel.imp.pkg.version>
+  
         <carbon.kernel.registry.imp.pkg.version>[1.0.1, 2.0.0)</carbon.kernel.registry.imp.pkg.version>
 
         <!-- Carbon commons version -->
-        <carbon.commons.version>4.4.8</carbon.commons.version>
-        <carbon.commons.imp.pkg.version>[4.4.0, 4.5.0)</carbon.commons.imp.pkg.version>
+        <carbon.commons.version>4.7.19</carbon.commons.version>
+        <carbon.commons.imp.pkg.version>[4.7.0, 4.8.0)</carbon.commons.imp.pkg.version>
 
         <!-- Carbon Identity version -->
         <!--<carbon.identity.version>5.0.3</carbon.identity.version>-->
         <!--<carbon.identity.imp.pkg.version>[5.0.0, 6.0.0)</carbon.identity.imp.pkg.version>-->
         
         <!-- Carbon Deployment version -->
-        <carbon.deployment.version>4.6.0</carbon.deployment.version>
-        <carbon.deployment.imp.pkg.version>[4.6.0, 5.0.0)</carbon.deployment.imp.pkg.version>
+        <carbon.deployment.version>4.9.15</carbon.deployment.version>
+        <carbon.deployment.imp.pkg.version>[4.9.0, 5.0.0)</carbon.deployment.imp.pkg.version>
 
         <!-- Carbon registry version -->
         <!--<carbon.registry.version>4.4.5</carbon.registry.version>-->
@@ -594,19 +586,18 @@
 
         <!-- Axiom Version -->
         <!--<axiom.wso2.version>1.2.11.wso2v6</axiom.wso2.version>-->
-        <version.axiom>1.2.11-wso2v10</version.axiom>
-        <axiom.osgi.version.range>[1.2.11.wso2v10, 1.3.0)</axiom.osgi.version.range>
-        <orbit.version.axiom>1.2.11.wso2v10</orbit.version.axiom>
+        <version.axiom>1.2.11-wso2v16</version.axiom>
+        <axiom.osgi.version.range>[1.2.11-wso2v16, 1.3.0)</axiom.osgi.version.range>
+        <orbit.version.axiom>1.2.11-wso2v16</orbit.version.axiom>
 
 
         <!-- Axis2 Version -->
-        <orbit.version.axis2>1.6.1.wso2v16</orbit.version.axis2>
+        <orbit.version.axis2>1.6.1-wso2v40</orbit.version.axis2>
         <!--axis2-transports.version>1.1.0-wso2v11</axis2-transports.version-->
-        <axis2.osgi.version.range>[1.6.1.wso2v16, 1.7.0)</axis2.osgi.version.range>
+        <axis2.osgi.version.range>[1.6.1-wso2v37, 1.7.0)</axis2.osgi.version.range>
 
         <neethi.osgi.version>2.0.4.wso2v4</neethi.osgi.version>
         <neethi.osgi.version.range>[2.0.4.wso2v4, 3.1.0)</neethi.osgi.version.range>
-        <imp.pkg.version.axis2>[1.6.1.wso2v11, 1.7.0)</imp.pkg.version.axis2>
 
         <!-- Xerces Version -->
         <xercesImpl.version>2.8.1</xercesImpl.version>
@@ -616,7 +607,7 @@
         <version.javax.servlet>3.0.0.v201112011016</version.javax.servlet>
 
         <!-- Rampart Version -->
-        <rampart.wso2.version>1.6.1-wso2v16</rampart.wso2.version>
+        <rampart.wso2.version>1.6.1-wso2v41</rampart.wso2.version>
 
         <libthrift.wso2.version>0.8.0.wso2v1</libthrift.wso2.version>
 
@@ -626,7 +617,6 @@
         <!-- Commons Version -->
         <commons-httpclient.version>3.0.1</commons-httpclient.version>
         <commons-pool.version>1.5.0.wso2v1</commons-pool.version>
-        <commons-logging.version>1.1.1</commons-logging.version>
         <orbit.version.commons.lang>2.6.0.wso2v1</orbit.version.commons.lang>
         <orbit.version.commons.httpclient>3.1.0.wso2v2</orbit.version.commons.httpclient>
         <commons-collections.version>3.2.0.wso2v1</commons-collections.version>
@@ -755,7 +745,6 @@
         <!--For BRS-->
         <orbit.version.org.apache.xmlbeans.wso2.xmlbeans>2.3.0.wso2v1
         </orbit.version.org.apache.xmlbeans.wso2.xmlbeans>
-        <version.log4j>1.2.17</version.log4j>
         <version.xmlunit>1.1</version.xmlunit>
         <version.jaxen>1.1.1</version.jaxen>
         <geronimo.transaction.version>2.0.1.wso2v1</geronimo.transaction.version>
@@ -786,5 +775,9 @@
         </imp.pkg.version.javax.servlet.jsp.jstl>
 
         <project.scm.id>wso2-scm-server</project.scm.id>
+        <apache.felix.scr.ds.annotations.version>1.2.4</apache.felix.scr.ds.annotations.version>
+        <maven.scr.plugin.version>1.26.0</maven.scr.plugin.version>
+        <pax.logging.api.version>1.10.1</pax.logging.api.version>
+        <import.package.version.commons.logging>[1.2.0,2.0.0)</import.package.version.commons.logging>
     </properties>
 </project>
