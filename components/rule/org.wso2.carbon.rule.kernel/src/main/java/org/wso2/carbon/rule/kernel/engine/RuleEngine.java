@@ -67,7 +67,6 @@ public class RuleEngine {
                 Subscription subscription = new Subscription();
                 subscription.setEventDispatcher(ruleChangeEventDispacher);
                 subscription.setTopicName(updateTopicName);
-                subscription.setTenantId(CarbonContext.getThreadLocalCarbonContext().getTenantId());
                 subscription.setOwner(CarbonConstants.REGISTRY_SYSTEM_USERNAME);
                 RuleValueHolder.getInstance().addSubscription(subscription);
             }
