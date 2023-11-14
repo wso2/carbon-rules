@@ -1,0 +1,2 @@
+instructions.configure = \
+org.eclipse.equinox.p2.touchpoint.natives.copy(source:${installFolder}/../features/org.wso2.carbon.rule.mediation.server_${feature.version}/conf/rule-engine-config.xml,target:${installFolder}/../../conf/rule-engine-config.xml,overwrite:true);\     
