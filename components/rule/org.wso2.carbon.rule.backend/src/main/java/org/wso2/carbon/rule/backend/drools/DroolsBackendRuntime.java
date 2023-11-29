@@ -84,7 +84,7 @@ public class DroolsBackendRuntime implements RuleBackendRuntime {
             }
         }
 
-        ReleaseId releaseId = this.kieServices.newReleaseId("org.wso2", "rule-mediator", "1.0.0");
+        ReleaseId releaseId = this.kieServices.newReleaseId("org.wso2", "carbon-rule", "1.0.0");
         this.kieFileSystem.generateAndWritePomXML(releaseId);
 
         // Now resources are built and stored into an internal repository

@@ -180,6 +180,37 @@
             </dependency>
 
             <dependency>
+                <groupId>org.wso2.orbit.jsr94</groupId>
+                <artifactId>jsr94</artifactId>
+                <version>${orbit.version.jsr94}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.wso2.orbit.org.codehaus.janino</groupId>
+                <artifactId>janino</artifactId>
+                <version>${orbit.version.janino}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.wso2.orbit.org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.orbit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mvel</groupId>
+                <artifactId>mvel2</artifactId>
+                <version>${version.mvel}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.wso2.orbit.joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${orbit.version.joda-time}</version>
+            </dependency>
+
+            <!-- testing dependencies -->
+            <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
