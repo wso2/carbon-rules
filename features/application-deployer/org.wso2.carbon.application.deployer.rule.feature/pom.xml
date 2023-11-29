@@ -20,13 +20,13 @@
     <parent>
         <groupId>org.wso2.carbon.rules</groupId>
         <artifactId>rule-feature</artifactId>
-        <version>4.5.6</version>
+        <version>5.0.0</version>
 	<relativePath>../../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>org.wso2.carbon.application.deployer.rule.feature</artifactId>
-    <version>4.5.6</version>
+    <version>5.0.0</version>
     <packaging>pom</packaging>
     <name>WSO2 Carbon - Rule Application Deployer Feature</name>
     <url>http://wso2.org</url>

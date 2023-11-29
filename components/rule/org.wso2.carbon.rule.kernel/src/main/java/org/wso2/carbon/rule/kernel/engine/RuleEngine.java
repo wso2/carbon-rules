@@ -17,7 +17,6 @@
 package org.wso2.carbon.rule.kernel.engine;
 
 import org.wso2.carbon.CarbonConstants;
-import org.wso2.carbon.context.CarbonContext;
 import org.wso2.carbon.event.core.subscription.Subscription;
 import org.wso2.carbon.rule.common.Rule;
 import org.wso2.carbon.rule.common.RuleSet;
