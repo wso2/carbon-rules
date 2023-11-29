@@ -63,7 +63,7 @@ public class DroolsBackendRuntime implements RuleBackendRuntime {
                             "Error in rule service configuration : Select \"dtable\" as Resource Type for decision tables "
                                                                         + "or attached file is not supported by rule engine");
                 } else {
-                    this.kieFileSystem.write("src/main/resources/com/sample/"+ rule.hashCode() + ".drl",
+                    this.kieFileSystem.write("src/main/resources/org/wso2/"+ rule.hashCode() + ".drl",
                             this.kieServices.getResources().newInputStreamResource(ruleInputStream));
                 }
 
@@ -77,14 +77,14 @@ public class DroolsBackendRuntime implements RuleBackendRuntime {
                             "Error in rule service configuration : Select \"regular\" as Resource Type for regular rules "
                                                                         + "or attached file is not supported by rule engine");
                 } else {
-                    this.kieFileSystem.write("src/main/resources/com/sample/"+ rule.hashCode() + ".drl",
+                    this.kieFileSystem.write("src/main/resources/org/wso2/"+ rule.hashCode() + ".drl",
                             this.kieServices.getResources().newInputStreamResource(ruleInputStream));
                 }
 
             }
         }
 
-        ReleaseId releaseId = this.kieServices.newReleaseId("com.sample", "my-sample-a", "1.0.0");
+        ReleaseId releaseId = this.kieServices.newReleaseId("org.wso2", "rule-mediator", "1.0.0");
         this.kieFileSystem.generateAndWritePomXML(releaseId);
 
         // Now resources are built and stored into an internal repository
