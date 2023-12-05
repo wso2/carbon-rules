@@ -582,9 +582,9 @@
     <properties>
 
         <!-- Carbon Rules Version -->
-        <carbon.rules.version>${project.version}</carbon.rules.version>
+        <carbon.rules.version>5.0.0</carbon.rules.version>
         <carbon.rules.imp.pkg.version>[4.5.0,6.0.0)</carbon.rules.imp.pkg.version>
-        <carbon.rules.exp.pkg.version>${project.version}</carbon.rules.exp.pkg.version>
+        <carbon.rules.exp.pkg.version>5.0.0</carbon.rules.exp.pkg.version>
 
 
         <!-- Drools Versions -->
