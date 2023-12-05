@@ -19,12 +19,12 @@
     <parent>
         <groupId>org.wso2.carbon.rules</groupId>
         <artifactId>rule</artifactId>
-        <version>5.0.0-SNAPSHOT</version>
+        <version>5.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <version>5.0.0-SNAPSHOT</version>
+    <version>5.0.0</version>
     <artifactId>org.wso2.carbon.application.deployer.rule</artifactId>
     <packaging>bundle</packaging>
     <name>WSO2 Carbon - Rule Artifact Deployer</name>
