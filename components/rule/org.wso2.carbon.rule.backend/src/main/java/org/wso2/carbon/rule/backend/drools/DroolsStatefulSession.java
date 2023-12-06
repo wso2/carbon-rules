@@ -16,7 +16,7 @@
 
 package org.wso2.carbon.rule.backend.drools;
 
-import org.drools.runtime.StatefulKnowledgeSession;
+import org.kie.api.runtime.KieSession;
 import org.wso2.carbon.rule.kernel.backend.Session;
 
 import java.util.ArrayList;
@@ -25,9 +25,9 @@ import java.util.List;
 
 public class DroolsStatefulSession implements Session {
 
-    private StatefulKnowledgeSession statefulKnowledgeSession;
+    private KieSession statefulKnowledgeSession;
 
-    public DroolsStatefulSession(StatefulKnowledgeSession statefulKnowledgeSession) {
+    public DroolsStatefulSession(KieSession statefulKnowledgeSession) {
         this.statefulKnowledgeSession = statefulKnowledgeSession;
     }
 

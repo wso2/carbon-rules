@@ -426,29 +426,54 @@
         |
     -->
     <repositories>
-        <!-- Before adding ANYTHING in here, please start a discussion on the dev list.
-             Ideally the Axis2 build should only use Maven central (which is available
-             by default) and nothing else. We had troubles with other repositories in
-             the past. Therefore configuring additional repositories here should be
-             considered very carefully. -->
-        <!-- Before adding ANYTHING in here, please start a discussion on the dev list.
-                     Ideally the Axis2 build should only use Maven central (which is available
-                     by default) and nothing else. We had troubles with other repositories in
-                     the past. Therefore configuring additional repositories here should be
-                     considered very carefully. -->
         <repository>
-            <id>wso2-nexus</id>
-            <name>WSO2 internal Repository</name>
-            <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+            <id>updates2-nexus</id>
+            <name>Support Nexus Repository of WSO2</name>
+            <url>https://support-maven.wso2.org/nexus/content/repositories/updates-2.0/</url>
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
+                <checksumPolicy>fail</checksumPolicy>
             </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
 
         <repository>
-            <id>wso2.releases</id>
+            <id>uat-nexus-internal-public</id>
+            <url>https://support-maven.wso2.org/nexus/content/groups/public</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>uat-nexus-internal-repositories</id>
+            <url>https://support-maven.wso2.org/nexus/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>uat-nexus-internal-snapshots</id>
+            <url>https://support-maven.wso2.org/nexus/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>daily</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>wso2releases</id>
             <name>WSO2 internal Repository</name>
             <url>https://maven.wso2.org/nexus/content/repositories/releases/</url>
             <releases>
@@ -457,10 +482,9 @@
                 <checksumPolicy>ignore</checksumPolicy>
             </releases>
         </repository>
-
         <repository>
-            <id>wso2.snapshots</id>
-            <name>WSO2 Snapshot Repository</name>
+            <id>wso2snapshots</id>
+            <name>Apache Snapshot Repository</name>
             <url>https://maven.wso2.org/nexus/content/repositories/snapshots/</url>
             <snapshots>
                 <enabled>true</enabled>
@@ -468,6 +492,16 @@
             </snapshots>
             <releases>
                 <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>wso2nexus</id>
+            <name>WSO2 internal Repository</name>
+            <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
             </releases>
         </repository>
     </repositories>
@@ -554,7 +588,7 @@
 
 
         <!-- Drools Versions -->
-        <orbit.version.drools>6.3.0.wso2v1</orbit.version.drools>
+        <orbit.version.drools>7.74.1.wso2v1</orbit.version.drools>
         <orbit.version.jsr94>1.1.0.wso2v1</orbit.version.jsr94>
         <poi.orbit.version>3.17.0.wso2v1</poi.orbit.version>
         <orbit.version.janino>2.5.15.wso2v1</orbit.version.janino>

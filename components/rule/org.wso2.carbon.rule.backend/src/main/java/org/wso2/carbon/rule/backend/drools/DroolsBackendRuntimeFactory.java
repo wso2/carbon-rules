@@ -16,42 +16,28 @@
 
 package org.wso2.carbon.rule.backend.drools;
 
-import org.drools.KnowledgeBase;
-import org.drools.KnowledgeBaseConfiguration;
-import org.drools.KnowledgeBaseFactory;
-import org.drools.builder.KnowledgeBuilder;
-import org.drools.builder.KnowledgeBuilderConfiguration;
-import org.drools.builder.KnowledgeBuilderFactory;
+import org.kie.api.KieServices;
+import org.kie.api.builder.KieFileSystem;
 import org.wso2.carbon.rule.kernel.backend.RuleBackendRuntime;
 import org.wso2.carbon.rule.kernel.backend.RuleBackendRuntimeFactory;
 
 import java.util.Map;
 import java.util.Properties;
 
-public class DroolsBackendRuntimeFactory implements RuleBackendRuntimeFactory{
+public class DroolsBackendRuntimeFactory implements RuleBackendRuntimeFactory {
 
     public RuleBackendRuntime getRuleBackendRuntime(Map<String, String> properties,
-                                                    ClassLoader classLoader){
+                                                    ClassLoader classLoader) {
 
         ClassLoader existingClassLoader = Thread.currentThread().getContextClassLoader();
-        Thread.currentThread().setContextClassLoader(classLoader);
+        try {
+            Thread.currentThread().setContextClassLoader(classLoader);
 
-        Properties knowledgeBaseProperties = new Properties();
-        knowledgeBaseProperties.putAll(properties);
-
-        KnowledgeBaseConfiguration knowledgeBaseConfiguration
-                = KnowledgeBaseFactory.newKnowledgeBaseConfiguration(knowledgeBaseProperties, classLoader);
-
-        KnowledgeBase knowledgeBase = KnowledgeBaseFactory.newKnowledgeBase(
-                knowledgeBaseConfiguration);
-        KnowledgeBuilderConfiguration builderConfiguration
-                = KnowledgeBuilderFactory.newKnowledgeBuilderConfiguration();
-
-        KnowledgeBuilder knowledgeBuilder = KnowledgeBuilderFactory.newKnowledgeBuilder(
-                builderConfiguration);
-
-        Thread.currentThread().setContextClassLoader(existingClassLoader);
-        
-        return new DroolsBackendRuntime(knowledgeBase, knowledgeBuilder , classLoader);
+            KieServices kieServices = KieServices.Factory.get();
+            KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
+            return new DroolsBackendRuntime(kieServices, kieFileSystem , classLoader);
+        } finally {
+            Thread.currentThread().setContextClassLoader(existingClassLoader);
+        }
     }
 }
