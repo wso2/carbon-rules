@@ -27,6 +27,10 @@ import org.wso2.carbon.rule.common.exception.RuleConfigurationException;
 import org.wso2.carbon.rule.common.util.Constants;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -72,6 +76,42 @@ public class RuleSetLoader {
         return ruleInputStream;
 
 
+    }
+
+    /**
+     * This method is used to get the rule set as a stream. This method is used to get the rule set as a stream
+     * from the registry, file system or from the class path.
+     * @param rule - rule object which contains the rule source type and the value
+     * @param classLoader - class loader
+     * @return - rule set as a stream
+     * @throws RuleConfigurationException - if there is a problem with the configuration
+     */
+    public static FileInputStream getRuleSetAsFileStream(Rule rule, ClassLoader classLoader)
+            throws RuleConfigurationException {
+        InputStream inputStream = getRuleSetAsStream(rule, classLoader);
+        File tempFile = null;
+        try {
+            tempFile = File.createTempFile("tempfile_" + rule.hashCode(), ".tmp");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        try (FileOutputStream fos = new FileOutputStream(tempFile)) {
+            byte[] buffer = new byte[4048];
+            int bytesRead;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                fos.write(buffer, 0, bytesRead);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            return new FileInputStream(tempFile);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static InputStream getRegistryAsStream(String type, String key) throws RegistryException {

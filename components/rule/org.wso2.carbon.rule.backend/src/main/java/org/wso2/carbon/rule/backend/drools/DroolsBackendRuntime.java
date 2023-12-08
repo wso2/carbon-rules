@@ -18,12 +18,13 @@ package org.wso2.carbon.rule.backend.drools;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.drools.KnowledgeBase;
-import org.drools.builder.*;
-import org.drools.definition.KnowledgePackage;
-import org.drools.io.ResourceFactory;
-import org.drools.runtime.StatefulKnowledgeSession;
-import org.drools.runtime.StatelessKnowledgeSession;
+import org.drools.modelcompiler.ExecutableModelProject;
+import org.kie.api.KieBase;
+import org.kie.api.KieServices;
+import org.kie.api.builder.KieFileSystem;
+import org.kie.api.builder.ReleaseId;
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
 import org.wso2.carbon.rule.backend.util.RuleSetLoader;
 import org.wso2.carbon.rule.common.Rule;
 import org.wso2.carbon.rule.common.RuleSet;
@@ -33,37 +34,43 @@ import org.wso2.carbon.rule.common.util.Constants;
 import org.wso2.carbon.rule.kernel.backend.RuleBackendRuntime;
 import org.wso2.carbon.rule.kernel.backend.Session;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Collection;
 
 public class DroolsBackendRuntime implements RuleBackendRuntime {
 
     private static Log log = LogFactory.getLog(DroolsBackendRuntime.class);
-    private KnowledgeBase knowledgeBase;
-    private KnowledgeBuilder knowledgeBuilder;
+    private KieServices kieServices;
+    private KieFileSystem kieFileSystem;
     private ClassLoader classLoader;
+    private KieBase kbase;
 
-    public DroolsBackendRuntime(KnowledgeBase knowledgeBase,
-                                KnowledgeBuilder knowledgeBuilder, ClassLoader classLoader) {
-        this.knowledgeBase = knowledgeBase;
-        this.knowledgeBuilder = knowledgeBuilder;
+    public DroolsBackendRuntime(KieServices kieServices,
+                                KieFileSystem kieFileSystem, ClassLoader classLoader) {
+        this.kieServices = kieServices;
+        this.kieFileSystem = kieFileSystem;
         this.classLoader = classLoader;
     }
 
     public void addRuleSet(RuleSet ruleSet) throws RuleConfigurationException {
 
         for (Rule rule : ruleSet.getRules()) {
-            InputStream ruleInputStream = RuleSetLoader.getRuleSetAsStream(rule, classLoader);
+            FileInputStream ruleInputStream = RuleSetLoader.getRuleSetAsFileStream(rule, classLoader);
 
             if (rule.getResourceType().equals(Constants.RULE_RESOURCE_TYPE_REGULAR)) {
 
                 //check the file type before adding it to knowledge builder for "file" source type
-                if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_FILE) && (rule.getValue().lastIndexOf(".drl") < 0) ) {
+                if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_FILE)
+                        && (rule.getValue().lastIndexOf(".drl") < 0) ) {
                     throw new RuleConfigurationException(
-                            "Error in rule service configuration : Select \"dtable\" as Resource Type for decision tables "
-                                                                        + "or attached file is not supported by rule engine");
+                            "Error in rule service configuration : " +
+                                    "Select \"dtable\" as Resource Type for decision tables "
+                                                                        + "or attached file is not supported" +
+                                    " by rule engine");
                 } else {
-                    this.knowledgeBuilder.add(ResourceFactory.newInputStreamResource(ruleInputStream), ResourceType.DRL);
+                    this.kieFileSystem.write("src/main/resources/org/wso2/"+ rule.hashCode() + ".drl",
+                            this.kieServices.getResources().newInputStreamResource(ruleInputStream));
                 }
 
             } else if (rule.getResourceType().equals(Constants.RULE_RESOURCE_TYPE_DTABLE)) {
@@ -76,67 +83,39 @@ public class DroolsBackendRuntime implements RuleBackendRuntime {
                             "Error in rule service configuration : Select \"regular\" as Resource Type for regular rules "
                                                                         + "or attached file is not supported by rule engine");
                 } else {
-                    DecisionTableConfiguration dtconf = KnowledgeBuilderFactory.newDecisionTableConfiguration();
-
-                    //check whether the decision tables is base on .xsl file of .csv format (inline input or .csv file input)
-                    if (rule.getSourceType().equalsIgnoreCase(Constants.RULE_SOURCE_TYPE_INLINE) ||
-                                                                    rule.getValue().lastIndexOf(".csv") > 0) {
-                        //decision table in .xls format
-                        dtconf.setInputType(DecisionTableInputType.CSV);
-                    } else {
-                        //decision table in .xls format
-                        dtconf.setInputType(DecisionTableInputType.XLS);
-                    }
-                    this.knowledgeBuilder.add(ResourceFactory.newInputStreamResource(ruleInputStream),
-                                              ResourceType.DTABLE, dtconf);
+                    this.kieFileSystem.write("src/main/resources/org/wso2/"+ rule.hashCode() + ".drl",
+                            this.kieServices.getResources().newInputStreamResource(ruleInputStream));
                 }
 
             }
-
-            if (this.knowledgeBuilder.hasErrors()) {
-                throw new RuleConfigurationException("Error during creating rule set: " +
-                        this.knowledgeBuilder.getErrors());
+            ReleaseId releaseId = this.kieServices.newReleaseId("org.wso2", "carbon-rule", "1.0.0");
+            this.kieFileSystem.generateAndWritePomXML(releaseId);
+            // Now resources are built and stored into an internal repository
+            try {
+                this.kieServices.newKieBuilder(kieFileSystem).buildAll(ExecutableModelProject.class);
+            } catch (Exception e) {
+                log.warn("Error while building the knowledge base" + e.getMessage());
             }
+            kieServices.newKieBuilder(kieFileSystem).buildAll(ExecutableModelProject.class);
 
-            Collection<KnowledgePackage> pkgs = this.knowledgeBuilder.getKnowledgePackages();
-            this.knowledgeBase.addKnowledgePackages(pkgs);
+            // You can get a KieContainer with the ReleaseId
+            KieContainer kcontainer = this.kieServices.newKieContainer(releaseId);
+
+            // KieContainer can create a KieBase
+            this.kbase = kcontainer.getKieBase();
         }
 
     }
 
     public Session createSession(int type) throws RuleRuntimeException {
+        Session session;
+        KieSession ruleSession = kbase.newKieSession();
 
-        Session sesson;
-        if (type == Constants.RULE_STATEFUL_SESSION) {
-
-            StatefulKnowledgeSession ruleSession =
-                    this.knowledgeBase.newStatefulKnowledgeSession();
-
-            if (ruleSession == null) {
-                throw new RuleRuntimeException("The created stateful rule session is null");
-            }
-            sesson = new DroolsStatefulSession(ruleSession);
-        } else {
-            if (log.isDebugEnabled()) {
-                log.debug("Using stateless rule session");
-            }
-            // create stateless rule session
-            /**
-                Due to drools have deprecated knowledgeBase usage, some classes have already unsupported,
-                Until BRS adapt new concept we create stateful knowledge session and use it in stateless manner
-                (dispose at the end of usage) therefore here we create stateful knowledge session from knowledgebase
-
-            StatelessKnowledgeSession ruleSession = knowledgeBase.newStatelessKnowledgeSession();
-            */
-
-            StatefulKnowledgeSession ruleSession = knowledgeBase.newStatefulKnowledgeSession();
-
-            if (ruleSession == null) {
-                throw new RuleRuntimeException("The created stateless rule session is null");
-            }
-            sesson = new DroolsStatelessSession(ruleSession);
+        if (ruleSession == null) {
+            throw new RuleRuntimeException("The created stateful rule session is null");
         }
-        return sesson;
+        session = new DroolsStatefulSession(ruleSession);
+        return session;
     }
 
 
