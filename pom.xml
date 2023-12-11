@@ -427,53 +427,17 @@
     -->
     <repositories>
         <repository>
-            <id>updates2-nexus</id>
-            <name>Support Nexus Repository of WSO2</name>
-            <url>https://support-maven.wso2.org/nexus/content/repositories/updates-2.0/</url>
+            <id>wso2-nexus</id>
+            <name>WSO2 internal Repository</name>
+            <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
+                <checksumPolicy>ignore</checksumPolicy>
             </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-
-        <repository>
-            <id>uat-nexus-internal-public</id>
-            <url>https://support-maven.wso2.org/nexus/content/groups/public</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
         </repository>
         <repository>
-            <id>uat-nexus-internal-repositories</id>
-            <url>https://support-maven.wso2.org/nexus/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>uat-nexus-internal-snapshots</id>
-            <url>https://support-maven.wso2.org/nexus/content/repositories/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>daily</checksumPolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>wso2releases</id>
+            <id>wso2.releases</id>
             <name>WSO2 internal Repository</name>
             <url>https://maven.wso2.org/nexus/content/repositories/releases/</url>
             <releases>
@@ -483,7 +447,7 @@
             </releases>
         </repository>
         <repository>
-            <id>wso2snapshots</id>
+            <id>wso2.snapshots</id>
             <name>Apache Snapshot Repository</name>
             <url>https://maven.wso2.org/nexus/content/repositories/snapshots/</url>
             <snapshots>
@@ -492,16 +456,6 @@
             </snapshots>
             <releases>
                 <enabled>false</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>wso2nexus</id>
-            <name>WSO2 internal Repository</name>
-            <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
             </releases>
         </repository>
     </repositories>
@@ -541,6 +495,18 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>wso2.snapshots</id>
+            <name>Apache Snapshot Repository</name>
+            <url>https://maven.wso2.org/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>WSO2 Release Distribution Repository</name>
+            <url>https://maven.wso2.org/nexus/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <profiles>
         <profile>
